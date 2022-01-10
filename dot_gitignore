@@ -1,0 +1,10 @@
+*~
+.DS_Store
+*.pyc
+*.s#*
+*.b#*
+eagle.epf
+.cargo/credentials
+.cargo/credentials.toml
+.ssh/*
+!.ssh/config
