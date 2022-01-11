@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 # The Bash shell personal interactive initialization script file.
 # (only read by a Bash shell that's both interactive and non-login)
 # https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html

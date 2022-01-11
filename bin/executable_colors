@@ -1,6 +1,10 @@
 #!/bin/bash
 #
-#   http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+# SPDX-FileCopyrightText: 1998 Giles Orr <giles@dreaming.org>
+#
+# SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
+#
+# From: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 #
 #   This file echoes a bunch of color codes to the
 #   terminal to demonstrate what's available.  Each

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 # The Bash personal login shell cleanup file, executed when an interactive login
 # shell exits, or a non-interactive login shell executes the exit builtin
 # command.
