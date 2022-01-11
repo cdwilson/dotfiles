@@ -1,0 +1,79 @@
+[user]
+	name = Chris Wilson
+	email = {{ .email }}
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore
+	quotepath = false
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	stash-unapply = !git stash show -p | git apply -R
+	amend = commit --amend --no-edit
+	gerrit = push origin HEAD:refs/for/master
+	prepush = log --graph --stat origin/master..
+	sdiff = !git diff && git submodule foreach 'git diff'
+	spush = push --recurse-submodules=on-demand
+	supdate = submodule update --remote --merge
+[color "diff"]
+	whitespace = red reverse
+[instaweb]
+	local = true
+	httpd = webrick
+[push]
+	default = simple
+	recurseSubmodules = check
+[status]
+	submodulesummary = 1
+[submodule]
+	recurse = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+	templateDir = ~/.git-template
+[fetch]
+	prune = true
+[diff]
+{{ if eq .chezmoi.os "darwin" -}}
+	tool = Kaleidoscope
+{{ else if eq .chezmoi.os "linux" -}}
+    tool = meld
+{{ end -}}
+	submodule = log
+[difftool]
+	prompt = false
+[merge]
+{{ if eq .chezmoi.os "darwin" -}}
+	tool = Kaleidoscope
+{{ else if eq .chezmoi.os "linux" -}}
+    tool = meld
+{{ end -}}
+	summary = true
+[mergetool]
+	prompt = false
+{{ if eq .chezmoi.os "darwin" -}}
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+{{ else if eq .chezmoi.os "linux" -}}
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+{{ end -}}
+{{ if eq .chezmoi.email "christopher.david.wilson@gmail.com" -}}
+[includeIf "gitdir:~/Flying_Camp_Design/"]
+	path = ~/.gitconfigs/flying_camp_design.gitconfig
+{{ end -}}
