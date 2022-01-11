@@ -44,36 +44,36 @@
 [fetch]
 	prune = true
 [diff]
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 	tool = Kaleidoscope
-{{ else if eq .chezmoi.os "linux" -}}
+{{- else if eq .chezmoi.os "linux" }}
     tool = meld
-{{ end -}}
+{{- end }}
 	submodule = log
 [difftool]
 	prompt = false
 [merge]
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 	tool = Kaleidoscope
-{{ else if eq .chezmoi.os "linux" -}}
+{{- else if eq .chezmoi.os "linux" }}
     tool = meld
-{{ end -}}
+{{- end }}
 	summary = true
 [mergetool]
 	prompt = false
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
-{{ else if eq .chezmoi.os "linux" -}}
+{{- else if eq .chezmoi.os "linux" }}
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-{{ end -}}
-{{ if eq .email "christopher.david.wilson@gmail.com" -}}
+{{- end }}
+{{- if eq .email "christopher.david.wilson@gmail.com" }}
 [includeIf "gitdir:~/Flying_Camp_Design/"]
 	path = ~/.gitconfigs/flying_camp_design.gitconfig
-{{ end -}}
+{{- end }}
