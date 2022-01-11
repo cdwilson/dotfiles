@@ -73,7 +73,7 @@
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 {{ end -}}
-{{ if eq .chezmoi.email "christopher.david.wilson@gmail.com" -}}
+{{ if eq .email "christopher.david.wilson@gmail.com" -}}
 [includeIf "gitdir:~/Flying_Camp_Design/"]
 	path = ~/.gitconfigs/flying_camp_design.gitconfig
 {{ end -}}
