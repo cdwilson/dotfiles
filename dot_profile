@@ -20,6 +20,7 @@ fi
 # ------------------------------------------------------------------------------
 
 if [ -r "${HOME}/.sh_functions" ]; then
+    # shellcheck source=dot_sh_functions
     . "${HOME}/.sh_functions"
 fi
 

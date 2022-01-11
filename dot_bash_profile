@@ -8,6 +8,7 @@
 # ------------------------------------------------------------------------------
 
 if [[ -r "${HOME}/.bash_functions" ]]; then
+    # shellcheck source=dot_bash_functions
     . "${HOME}/.bash_functions"
 fi
 
@@ -16,6 +17,7 @@ fi
 # ------------------------------------------------------------------------------
 
 if [[ -r "${HOME}/.profile" ]]; then
+    # shellcheck source=dot_profile
     . "${HOME}/.profile"
 fi
 
@@ -27,6 +29,7 @@ fi
 case "$-" in
     *i*)
         # This shell is interactive
+        # shellcheck source=dot_bashrc
         . "${HOME}/.bashrc"
         ;;
     *)

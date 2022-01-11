@@ -9,6 +9,7 @@
 # ------------------------------------------------------------------------------
 
 if [[ -r "${HOME}/.bash_functions" ]]; then
+    # shellcheck source=dot_bash_functions
     . "${HOME}/.bash_functions"
 fi
 
