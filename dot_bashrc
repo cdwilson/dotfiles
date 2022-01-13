@@ -254,6 +254,15 @@ if executable_exists pip; then
 fi
 
 # ------------------------------------------------------------------------------
+# poetry Bash completion
+# ------------------------------------------------------------------------------
+
+if executable_exists poetry; then
+    poetry_completions_bash=$(poetry completions bash)
+    eval "${poetry_completions_bash}"
+fi
+
+# ------------------------------------------------------------------------------
 # rustup Bash completion
 # ------------------------------------------------------------------------------
 

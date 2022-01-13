@@ -175,6 +175,14 @@ pipx install pre-commit
 pre-commit init-templatedir ~/.git-template
 ```
 
+#### `poetry` Setup
+
+[poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+
+```sh
+pipx install poetry
+```
+
 #### Terminal.app Setup
 
 ![macos_terminal](README.assets/macos_terminal.png)
@@ -321,6 +329,14 @@ pipx install pre-commit
 # automatically enabling pre-commit on repositories
 # https://pre-commit.com/#automatically-enabling-pre-commit-on-repositories
 pre-commit init-templatedir ~/.git-template
+```
+
+#### `poetry` Setup
+
+[poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+
+```sh
+pipx install poetry
 ```
 
 #### GNOME Terminal Setup
