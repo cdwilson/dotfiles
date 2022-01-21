@@ -163,26 +163,6 @@ brew install direnv
 brew install pipx
 ```
 
-#### `pre-commit` Setup
-
-[pre-commit](https://pre-commit.com/) is a framework for managing git pre-commit hooks.
-
-```sh
-pipx install pre-commit
-
-# automatically enabling pre-commit on repositories
-# https://pre-commit.com/#automatically-enabling-pre-commit-on-repositories
-pre-commit init-templatedir ~/.git-template
-```
-
-#### `poetry` Setup
-
-[poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
-
-```sh
-pipx install poetry
-```
-
 #### Terminal.app Setup
 
 ![macos_terminal](README.assets/macos_terminal.png)
@@ -319,26 +299,6 @@ sudo apt install direnv
 sudo apt install pipx
 ```
 
-#### `pre-commit` Setup
-
-[pre-commit](https://pre-commit.com/) is a framework for managing git pre-commit hooks.
-
-```sh
-pipx install pre-commit
-
-# automatically enabling pre-commit on repositories
-# https://pre-commit.com/#automatically-enabling-pre-commit-on-repositories
-pre-commit init-templatedir ~/.git-template
-```
-
-#### `poetry` Setup
-
-[poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
-
-```sh
-pipx install poetry
-```
-
 #### GNOME Terminal Setup
 
 ![ubuntu_terminal](README.assets/ubuntu_terminal.png)
@@ -371,6 +331,36 @@ pipx install poetry
    git clone https://github.com/aaron-williamson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
    .config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
    ```
+
+### :snake: Install python-based tools via `pipx`
+
+#### `pre-commit` Setup
+
+[pre-commit](https://pre-commit.com/) is a framework for managing git pre-commit hooks.
+
+```sh
+pipx install pre-commit
+
+# automatically enabling pre-commit on repositories
+# https://pre-commit.com/#automatically-enabling-pre-commit-on-repositories
+pre-commit init-templatedir ~/.git-template
+```
+
+#### `poetry` Setup
+
+[poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+
+```sh
+pipx install poetry
+```
+
+#### `pdm` Setup
+
+[PDM](https://pdm.fming.dev/) is a modern Python package manager with [PEP 582](https://www.python.org/dev/peps/pep-0582/) support. It installs and manages packages in a similar way to `npm` that doesn't need to create a virtualenv at all!
+
+```sh
+pipx install pdm
+```
 
 ## License Information
 
