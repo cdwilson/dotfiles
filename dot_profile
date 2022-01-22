@@ -32,7 +32,6 @@ fi
 # User paths
 # ------------------------------------------------------------------------------
 
-# pipx exposes binaries in this directory
 if [ -d "${HOME}/.local/bin" ] ; then
     export PATH="${HOME}/.local/bin:${PATH}"
 fi
@@ -129,6 +128,16 @@ fi
 if executable_exists brew; then
     PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:$(brew --prefix libffi)/lib/pkgconfig"
     export PKG_CONFIG_PATH
+fi
+
+# ------------------------------------------------------------------------------
+# pipx
+# ------------------------------------------------------------------------------
+
+# set the default app location for pipx
+if executable_exists pipx; then
+    export PIPX_BIN_DIR="${HOME}/.local/pipx/bin"
+    export PATH="${PATH}:${PIPX_BIN_DIR}"
 fi
 
 # ------------------------------------------------------------------------------
