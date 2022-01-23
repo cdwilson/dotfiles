@@ -12,3 +12,5 @@ eagle.epf
 .cargo/credentials.toml
 .ssh/*
 !.ssh/config
+.pdm.toml
+__pypackages__/
