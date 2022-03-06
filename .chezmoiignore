@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: MIT
 
 README.md
-README.assets/*
-LICENSES/*
-terminal/*
-.reuse/*
+README.assets
+LICENSES
+terminal
+.reuse
 {{ if ne .email "christopher.david.wilson@gmail.com" }}
 .gitconfigs/flying_camp_design.gitconfig
 {{ end }}
