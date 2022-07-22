@@ -1,0 +1,8 @@
+#!/bin/bash
+
+t1=$(mktemp) && \
+sed -E 's/\(tstamp .*\)/\(tstamp REPLACED\)/g' ${1} > ${t1} && \
+t2=$(mktemp) && \
+sed -E 's/\(tstamp .*\)/\(tstamp REPLACED\)/g' ${2} > ${t2} && \
+ksdiff "${t1}" "${t2}" && \
+rm -f "${t1}" "${t2}"
