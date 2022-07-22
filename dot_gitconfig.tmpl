@@ -88,5 +88,7 @@
 [includeIf "gitdir:~/Flying_Camp_Design/"]
 	path = ~/.gitconfigs/flying_camp_design.gitconfig
 {{- end }}
-[difftool "kicad-pcb-difftool"]
-    cmd = kicad-pcb-difftool $LOCAL $REMOTE
+{{- if eq .chezmoi.os "darwin" }}
+[difftool "kicad-pcb-ksdiff"]
+    cmd = kicad-pcb-ksdiff $LOCAL $REMOTE
+{{- end }}
