@@ -369,7 +369,6 @@ This repository is compliant with version 3.0 of the [REUSE Specification](https
 Run the following for detailed copyright & license information on individual files:
 
 ```sh
-pip install reuse
+pipx install reuse
 reuse spdx
 ```
-
