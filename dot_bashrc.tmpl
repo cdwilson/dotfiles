@@ -280,7 +280,18 @@ if executable_exists rustup; then
     rustup_completions_bash=$(rustup completions bash)
     eval "${rustup_completions_bash}"
 fi
+{{- if eq .chezmoi.os "linux" }}
 
+# ------------------------------------------------------------------------------
+# Initialize keychain
+# ------------------------------------------------------------------------------
+
+if executable_exists keychain; then
+    keychain_init_bash=$(keychain --eval id_rsa)
+    eval "${keychain_init_bash}"
+fi
+
+{{- end }}
 # ------------------------------------------------------------------------------
 # Initialize Starship prompt
 # ------------------------------------------------------------------------------
