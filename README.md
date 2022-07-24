@@ -299,6 +299,14 @@ sudo apt install direnv
 sudo apt install pipx
 ```
 
+#### `keychain` Setup
+
+[Keychain](https://www.funtoo.org/Funtoo:Keychain) helps you to manage SSH and GPG keys in a convenient and secure manner. It acts as a frontend to ssh-agent and ssh-add, but allows you to easily have one long running ssh-agent process per system, rather than the norm of one ssh-agent per login session.
+
+```bash
+sudo apt install keychain
+```
+
 #### GNOME Terminal Setup
 
 ![ubuntu_terminal](README.assets/ubuntu_terminal.png)
