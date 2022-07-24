@@ -306,7 +306,7 @@ sudo apt install pipx
 1. To use the prompt shown in the photo above, install https://starship.rs/:
 
    ```sh
-   sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+   sudo snap install starship
    ```
 
 2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
