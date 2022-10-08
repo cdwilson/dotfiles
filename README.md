@@ -6,6 +6,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # :house: dotfiles
 
+[![REUSE status](https://api.reuse.software/badge/github.com/cdwilson/dotfiles/)](https://api.reuse.software/info/github.com/cdwilson/dotfiles/)
+
 My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io/).
 
 ## :computer: System Setup
@@ -374,9 +376,11 @@ pipx install pdm
 
 This repository is compliant with version 3.0 of the [REUSE Specification](https://reuse.software/spec/).
 
+License files are contained in the [LICENSES/](LICENSES/) directory and additional license & copyright information can be found in [.reuse/dep5](.reuse/dep5).
+
 Run the following for detailed copyright & license information on individual files:
 
 ```sh
-pipx install reuse
+pip install reuse
 reuse spdx
 ```
