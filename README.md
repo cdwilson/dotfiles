@@ -190,7 +190,7 @@ brew install pipx
 
    ![macos_terminal_preferences](README.assets/macos_terminal_preferences.png)
 
-5. To use the Terminal.app profile shown in the photo above, just double click the [terminal/cdwilson.terminal](terminal/cdwilson.terminal) file in Finder.
+5. To use the Terminal.app profile shown in the photo above, just double click the [macOS/terminal/cdwilson.terminal](macOS/terminal/cdwilson.terminal) file in Finder.
 
 ### :penguin: Ubuntu Linux Setup
 

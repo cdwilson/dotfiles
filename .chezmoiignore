@@ -5,7 +5,7 @@
 README.md
 README.assets
 LICENSES
-terminal
+macOS
 .reuse
 {{ if ne .email "christopher.david.wilson@gmail.com" }}
 .gitconfigs/flying_camp_design.gitconfig
