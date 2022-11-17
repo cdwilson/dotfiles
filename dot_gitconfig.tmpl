@@ -86,7 +86,9 @@
 {{- end }}
 {{- if eq .email "christopher.david.wilson@gmail.com" }}
 [includeIf "gitdir:~/Projects/flyingcampdesign/"]
-	path = ~/.gitconfigs/flying_camp_design.gitconfig
+	path = ~/.gitconfigs/flyingcampdesign.gitconfig
+[includeIf "gitdir:~/Projects/cgnd/"]
+	path = ~/.gitconfigs/cgnd.gitconfig
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "kicad-pcb-ksdiff"]
