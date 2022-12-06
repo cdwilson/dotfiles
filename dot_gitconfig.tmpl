@@ -91,6 +91,6 @@
 	path = ~/.gitconfigs/cgnd.gitconfig
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
-[difftool "kicad-pcb-ksdiff"]
-    cmd = kicad-pcb-ksdiff $LOCAL $REMOTE
+[difftool "kicad-ksdiff"]
+    cmd = kicad-ksdiff $LOCAL $REMOTE
 {{- end }}

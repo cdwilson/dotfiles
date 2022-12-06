@@ -6,11 +6,11 @@
 # Put the following in your .gitconfig:
 # [diff]
 # 	tool = Kaleidoscope
-# [difftool "kicad-pcb-ksdiff"]
-# 	cmd = kicad-pcb-ksdiff $LOCAL $REMOTE
+# [difftool "kicad-ksdiff"]
+# 	cmd = kicad-ksdiff $LOCAL $REMOTE
 #
 # Run with the following command:
-# git difftool --tool=kicad-pcb-ksdiff board.kicad_pcb
+# git difftool --tool=kicad-ksdiff board.kicad_pcb
 
 T1=$(mktemp)
 T2=$(mktemp)
