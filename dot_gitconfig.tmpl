@@ -5,6 +5,15 @@
 [user]
 	name = Chris Wilson
 	email = {{ .email }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMmOdgdN3KlDNWhR7qRVqmJnBPPwMLdV+J6IMlKN3MPd
+[gpg]
+    format = ssh
+{{- if eq .chezmoi.os "darwin" }}
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
+[commit]
+    gpgsign = true
 [core]
 	editor = code --wait
 	excludesfile = ~/.gitignore
