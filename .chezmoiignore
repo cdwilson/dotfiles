@@ -8,7 +8,8 @@ LICENSES
 macOS
 .reuse
 {{ if ne .email "christopher.david.wilson@gmail.com" }}
-.gitconfigs/flying_camp_design.gitconfig
+.gitconfigs/cgnd.gitconfig
+.gitconfigs/flyingcampdesign.gitconfig
 {{ end }}
 {{ if ne .chezmoi.os "darwin" -}}
 Library
