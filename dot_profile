@@ -222,10 +222,10 @@ export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 
 # ------------------------------------------------------------------------------
-# Zephyr
+# 1Password CLI
 # ------------------------------------------------------------------------------
 
-if [ -r "${HOME}/Projects/zephyrproject/zephyr/zephyr-env.sh" ]; then
+if [ -r "${HOME}/.config/op/plugins.sh" ]; then
     # shellcheck source=/dev/null
-    . "${HOME}/Projects/zephyrproject/zephyr/zephyr-env.sh"
+    . "${HOME}/.config/op/plugins.sh"
 fi
