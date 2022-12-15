@@ -2,9 +2,10 @@
 #
 # SPDX-License-Identifier: MIT
 
+# 1Password recommends creating a symlink for the agent path that is consistent
+# with Linux (see https://developer.1password.com/docs/ssh/get-started/).
+# Run the following to create the symlink:
+# mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+
 Host *
-  AddKeysToAgent yes
-  IgnoreUnknown UseKeychain
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_rsa
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityAgent "~/.1password/agent.sock"
