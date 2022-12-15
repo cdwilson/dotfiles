@@ -10,3 +10,6 @@ macOS
 {{ if ne .email "christopher.david.wilson@gmail.com" }}
 .gitconfigs/flying_camp_design.gitconfig
 {{ end }}
+{{ if ne .chezmoi.os "darwin" -}}
+Library
+{{ end -}}
