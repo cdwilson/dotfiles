@@ -22,14 +22,6 @@ Once you have Xcode installed, open a terminal and run the following to install 
 xcode-select --install
 ```
 
-#### dotfiles Setup
-
-Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/):
-
-```sh
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
-```
-
 #### Homebrew Setup
 
 [Homebrew](https://brew.sh/) is a package manager for macOS that can be used to install packages that aren't included by Apple.
@@ -43,7 +35,23 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 Install the latest version of Git from Homebrew:
 
 ```sh
-brew install git
+brew install git gpg
+```
+
+#### 1Password Setup
+
+Install 1Password password manager from Homebrew:
+
+```sh
+brew install --cask 1password
+```
+
+#### 1Password CLI Setup
+
+With [1Password CLI](https://developer.1password.com/docs/cli), you can automate administrative tasks and load secrets straight from your command line and in your scripts.
+
+```sh
+brew install --cask 1password/tap/1password-cli
 ```
 
 #### Bash Setup
@@ -59,17 +67,13 @@ brew install bash-language-server
 
 #### Login Shell Setup
 
-On macOS, if you're using a custom shell installed via Homebrew or MacPorts, remember to configure the login shell in the system preferences.
+On macOS, if you're using a custom shell installed via Homebrew or MacPorts, remember to configure the shell in your terminal preferences.
 
-1. Right click on your user account and select "Advanced Options...":
+1. Change the Command preference to the full path of your shell:
 
-   ![macos_users_and_groups](README.assets/macos_users_and_groups.png)
+   ![macos_terminal_shell_command](README.assets/macos_terminal_shell_command.png)
 
-2. Change the Login shell to the full path of your shell:
-
-   ![macos_advanced_options](README.assets/macos_advanced_options.png)
-
-3. Add your login shell to `/etc/shells`:
+3. Add your shell to `/etc/shells`:
 
    ```
    # List of acceptable shells for chpass(1).
@@ -86,7 +90,54 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
    /opt/homebrew/bin/bash <-- Add your shell here
    ```
 
-#### `rbenv` Setup
+#### dotfiles Setup
+
+Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/):
+
+```sh
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
+```
+
+#### Terminal.app Setup
+
+![macos_terminal](README.assets/macos_terminal.png)
+
+1. To use the prompt shown in the photo above, install https://starship.rs/:
+
+   ```sh
+   # via Homebrew for Mac
+   brew install starship
+   ```
+
+2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
+
+3. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+
+   ```sh
+   # via Homebrew for Mac
+   brew tap homebrew/cask-fonts
+   brew install --cask font-hasklug-nerd-font
+   ```
+
+4. To use the Terminal.app profile shown in the photo above, just double click the [macOS/terminal/cdwilson.terminal](macOS/terminal/cdwilson.terminal) file in Finder.
+
+#### ``pipx` Setup
+
+[pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
+
+```sh
+brew install pipx
+```
+
+#### `direnv` Setup
+
+[direnv](https://direnv.net/) lets you easily load and unload environment variables depending on the current directory.
+
+```sh
+brew install direnv
+```
+
+#### rbenv` Setup
 
 [rbenv](https://github.com/rbenv/rbenv) is a version manager that lets you easily install and switch between multiple versions of Ruby.
 
@@ -149,57 +200,71 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
    pyenv doctor
    ```
 
-#### `direnv` Setup
-
-[direnv](https://direnv.net/) lets you easily load and unload environment variables depending on the current directory.
-
-```sh
-brew install direnv
-```
-
-#### `pipx` Setup
-
-[pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
-
-```sh
-brew install pipx
-```
-
-#### Terminal.app Setup
-
-![macos_terminal](README.assets/macos_terminal.png)
-
-1. To use the prompt shown in the photo above, install https://starship.rs/:
-
-   ```sh
-   # via Homebrew for Mac
-   brew install starship
-   ```
-
-2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
-
-3. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
-
-   ```sh
-   # via Homebrew for Mac
-   brew tap homebrew/cask-fonts
-   brew install --cask font-hasklug-nerd-font
-   ```
-
-4. Make sure to configure the macOS Terminal.app preferences so that shells open with the default login shell:
-
-   ![macos_terminal_preferences](README.assets/macos_terminal_preferences.png)
-
-5. To use the Terminal.app profile shown in the photo above, just double click the [macOS/terminal/cdwilson.terminal](macOS/terminal/cdwilson.terminal) file in Finder.
+------
 
 ### :penguin: Ubuntu Linux Setup
 
 #### `apt` Setup
 
-Update package information from the package repository:
+Update package information from the package repository and install dependencies:
 
 ```sh
 sudo apt update
+sudo apt upgrade
+sudo apt install curl
+
+# Optional: install a GUI desktop on a server image
+sudo apt install ubuntu-desktop
+```
+
+#### `keychain` Setup
+
+[Keychain](https://www.funtoo.org/Funtoo:Keychain) helps you to manage SSH and GPG keys in a convenient and secure manner. It acts as a frontend to ssh-agent and ssh-add, but allows you to easily have one long running ssh-agent process per system, rather than the norm of one ssh-agent per login session.
+
+```bash
+sudo apt install keychain
+```
+
+#### Git Setup
+
+Install the latest version of Git from the package repository:
+
+```sh
+sudo apt install git gpg
+```
+
+#### 1Password Setup for amd64
+
+```sh
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | sudo tee /etc/apt/sources.list.d/1password.list
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+sudo apt update && sudo apt install 1password
+```
+
+#### 1Password Setup for arm64
+
+```sh
+cd ~/Downloads
+curl -sSO https://downloads.1password.com/linux/tar/stable/aarch64/1password-latest.tar.gz
+tar -xf 1password-latest.tar.gz
+sudo mkdir -p /opt/1Password
+sudo mv 1password-*/* /opt/1Password
+cd ~
+sudo /opt/1Password/after-install.sh
+touch ~/.ssh/config
+# make sure to add 1Password to startup items
+```
+
+#### 1Password CLI Setup
+
+With [1Password CLI](https://developer.1password.com/docs/cli), you can automate administrative tasks and load secrets straight from your command line and in your scripts.
+
+```sh
+sudo apt install 1password-cli
 ```
 
 #### dotfiles Setup
@@ -210,12 +275,65 @@ Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 ```
 
-#### Git Setup
+#### GNOME Terminal Setup
 
-Install the latest version of Git from the package repository:
+![ubuntu_terminal](README.assets/ubuntu_terminal.png)
+
+1. To use the prompt shown in the photo above, install https://starship.rs/:
+
+   ```sh
+   sudo snap install starship
+   ```
+
+2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
+
+3. To use the GNOME Terminal profile colors shown in the photo above, install https://github.com/aarowill/base16-gnome-terminal:
+
+   ```sh
+   sudo apt install gconf2
+   git clone https://github.com/aaron-williamson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
+   # a new profile needs to be created in the terminal preferences UI before running the next command, otherwise it will appear to do nothing (it can be deleted afterwards)
+   .config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
+   ```
+
+4. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+
+   ```sh
+   cd ~/Downloads
+   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hasklig.zip
+   mkdir -p ~/.local/share/fonts
+   unzip Hasklig.zip -d ~/.local/share/fonts/
+   cd ~/.local/share/fonts/
+   rm *Windows*
+   cd ~
+   fc-cache -fv
+   ```
+
+   ![ubuntu_custom_font](README.assets/ubuntu_custom_font.png)
+
+#### GitHub Commit Verification Setup
+
+This allows git commits made via the GitHub web UI to be verified locally (e.g. `git verify-commit <commit>`:
 
 ```sh
-sudo apt install git
+curl https://github.com/web-flow.gpg | gpg --import
+gpg --edit-key noreply@github.com trust quit # choose option 5 = I trust ultimately
+```
+
+#### `pipx` Setup
+
+[pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
+
+```sh
+sudo apt install pipx
+```
+
+#### `direnv` Setup
+
+[direnv](https://direnv.net/) lets you easily load and unload environment variables depending on the current directory.
+
+```sh
+sudo apt install direnv
 ```
 
 #### `rbenv` Setup
@@ -275,7 +393,7 @@ sudo apt install git
 
 3. Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't worry if it fails; Pyenv will still work normally:
 
-   ```
+   ```sh
    cd ~/.pyenv && src/configure && make -C src
    ```
 
@@ -285,62 +403,7 @@ sudo apt install git
    pyenv doctor
    ```
 
-#### `direnv` Setup
-
-[direnv](https://direnv.net/) lets you easily load and unload environment variables depending on the current directory.
-
-```sh
-sudo apt install direnv
-```
-
-#### `pipx` Setup
-
-[pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
-
-```sh
-sudo apt install pipx
-```
-
-#### `keychain` Setup
-
-[Keychain](https://www.funtoo.org/Funtoo:Keychain) helps you to manage SSH and GPG keys in a convenient and secure manner. It acts as a frontend to ssh-agent and ssh-add, but allows you to easily have one long running ssh-agent process per system, rather than the norm of one ssh-agent per login session.
-
-```bash
-sudo apt install keychain
-```
-
-#### GNOME Terminal Setup
-
-![ubuntu_terminal](README.assets/ubuntu_terminal.png)
-
-1. To use the prompt shown in the photo above, install https://starship.rs/:
-
-   ```sh
-   sudo snap install starship
-   ```
-
-2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
-
-3. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
-
-   ```sh
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hasklig.zip
-   mkdir -p ~/.local/share/fonts
-   unzip Hasklig.zip -d ~.local/share/fonts/
-   cd ~/.local/share/fonts/
-   rm *Windows*
-   cd ~
-   fc-cache -fv
-   ```
-
-   ![ubuntu_custom_font](README.assets/ubuntu_custom_font.png)
-
-4. To use the GNOME Terminal profile colors shown in the photo above, install https://github.com/aarowill/base16-gnome-terminal:
-
-   ```sh
-   git clone https://github.com/aaron-williamson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
-   .config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
-   ```
+------
 
 ### :snake: Install python-based tools via `pipx`
 
@@ -371,6 +434,8 @@ pipx install poetry
 ```sh
 pipx install pdm
 ```
+
+------
 
 ## License Information
 
