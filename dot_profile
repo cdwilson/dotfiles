@@ -225,6 +225,12 @@ export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 # 1Password CLI
 # ------------------------------------------------------------------------------
 
+{{- if eq .chezmoi.os "darwin" }}
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{- else if eq .chezmoi.os "linux" }}
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+{{- end }}
+
 if [ -r "${HOME}/.config/op/plugins.sh" ]; then
     # shellcheck source=/dev/null
     . "${HOME}/.config/op/plugins.sh"

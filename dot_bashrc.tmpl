@@ -298,10 +298,10 @@ fi
 # Initialize keychain
 # ------------------------------------------------------------------------------
 
-if executable_exists keychain; then
-    keychain_init_bash=$(keychain --eval id_rsa)
-    eval "${keychain_init_bash}"
-fi
+# if executable_exists keychain; then
+#     keychain_init_bash=$(keychain --eval id_rsa)
+#     eval "${keychain_init_bash}"
+# fi
 {{- end }}
 
 # ------------------------------------------------------------------------------
