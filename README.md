@@ -215,6 +215,7 @@ sudo apt install curl
 
 # Optional: install a GUI desktop on a server image
 sudo apt install ubuntu-desktop
+sudo apt install gnome-software
 ```
 
 #### `keychain` Setup
