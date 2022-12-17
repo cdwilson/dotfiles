@@ -92,7 +92,7 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
 
 #### dotfiles Setup
 
-Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/) (**make sure to change `cdwilson` to your GitHub username!**):
+Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/) (**make sure to change `cdwilson` to your GitHub username!**):
 
 ```sh
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
@@ -121,7 +121,7 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 4. To use the Terminal.app profile shown in the photo above, just double click the [macOS/terminal/cdwilson.terminal](macOS/terminal/cdwilson.terminal) file in Finder.
 
-#### ``pipx` Setup
+#### `pipx` Setup
 
 [pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
 
@@ -137,7 +137,7 @@ brew install pipx
 brew install direnv
 ```
 
-#### rbenv` Setup
+#### `rbenv` Setup
 
 [rbenv](https://github.com/rbenv/rbenv) is a version manager that lets you easily install and switch between multiple versions of Ruby.
 
@@ -316,15 +316,6 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
    ![ubuntu_terminal_login_shell](README.assets/ubuntu_terminal_login_shell.png)
 
-#### GitHub Commit Verification Setup
-
-This allows git commits made via the GitHub web UI to be verified locally (e.g. `git verify-commit <commit>`:
-
-```sh
-curl https://github.com/web-flow.gpg | gpg --import
-gpg --edit-key noreply@github.com trust quit # choose option 5 = I trust ultimately
-```
-
 #### `pipx` Setup
 
 [pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
@@ -407,6 +398,17 @@ sudo apt install direnv
    ```sh
    pyenv doctor
    ```
+
+------
+
+### GitHub Commit Verification Setup
+
+This allows git commits made via the GitHub web UI to be verified locally (e.g. `git verify-commit <commit>`:
+
+```sh
+curl https://github.com/web-flow.gpg | gpg --import
+gpg --edit-key noreply@github.com trust quit # choose option 5 = I trust ultimately
+```
 
 ------
 
