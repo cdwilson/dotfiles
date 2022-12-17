@@ -312,6 +312,10 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
    ![ubuntu_custom_font](README.assets/ubuntu_custom_font.png)
 
+5. Make sure the "Run command as a login shell" is checked to ensure that `.bash_profile` is sourced:
+
+   ![ubuntu_terminal_login_shell](README.assets/ubuntu_terminal_login_shell.png)
+
 #### GitHub Commit Verification Setup
 
 This allows git commits made via the GitHub web UI to be verified locally (e.g. `git verify-commit <commit>`:
