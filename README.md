@@ -257,7 +257,8 @@ sudo mv 1password-*/* /opt/1Password
 cd ~
 sudo /opt/1Password/after-install.sh
 touch ~/.ssh/config
-# make sure to add 1Password to startup items
+# make sure to copy or link /opt/1Password/resources/1password.desktop and /opt/1Password/resources/icons/ into /usr/share/applications/ and /usr/share/icons/ respectively, and then update the icon cache by running
+gtk-update-icon-cache /usr/share/icons/hicolor
 ```
 
 #### 1Password CLI Setup
