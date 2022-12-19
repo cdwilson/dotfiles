@@ -218,6 +218,7 @@ sudo apt install ubuntu-desktop
 sudo apt install gnome-software
 ```
 
+<!--
 #### `keychain` Setup
 
 [Keychain](https://www.funtoo.org/Funtoo:Keychain) helps you to manage SSH and GPG keys in a convenient and secure manner. It acts as a frontend to ssh-agent and ssh-add, but allows you to easily have one long running ssh-agent process per system, rather than the norm of one ssh-agent per login session.
@@ -225,6 +226,7 @@ sudo apt install gnome-software
 ```bash
 sudo apt install keychain
 ```
+-->
 
 #### Git Setup
 
