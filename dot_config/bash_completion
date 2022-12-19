@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Turn off programmable completion
+# (see https://github.com/scop/bash-completion/blob/master/README.md)
+# shopt -u progcomp
