@@ -404,7 +404,7 @@ sudo apt install direnv
 
 ------
 
-### GitHub Commit Verification Setup
+### 🔐 GitHub Commit Verification Setup
 
 This allows git commits made via the GitHub web UI to be verified locally (e.g. `git verify-commit <commit>`:
 
