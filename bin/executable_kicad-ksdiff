@@ -12,9 +12,9 @@
 # Run with the following command:
 # git difftool --tool=kicad-ksdiff board.kicad_pcb
 
-T1=$(mktemp)
-T2=$(mktemp)
-sed -E 's/\(tstamp .*\)/\(tstamp REPLACED\)/g' ${1} > ${T1}
-sed -E 's/\(tstamp .*\)/\(tstamp REPLACED\)/g' ${2} > ${T2}
-ksdiff "${T1}" "${T2}"
-rm -f "${T1}" "${T2}"
+# From https://forum.kicad.info/t/a-better-difftool-for-kicad/40042/3
+tstamp() {
+  sed -E 's/([(]tstamp )[^)]*/\1-/g' "$@";
+}
+
+ksdiff <(tstamp "$1") <(tstamp "$2")
