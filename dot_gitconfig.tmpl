@@ -98,9 +98,9 @@
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 {{- end }}
 {{- if eq .email "christopher.david.wilson@gmail.com" }}
-[includeIf "gitdir:~/Projects/flyingcampdesign/"]
+[includeIf "gitdir:~/flyingcampdesign/"]
 	path = ~/.gitconfigs/flyingcampdesign.gitconfig
-[includeIf "gitdir:~/Projects/cgnd/"]
+[includeIf "gitdir:~/cgnd/"]
 	path = ~/.gitconfigs/cgnd.gitconfig
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
