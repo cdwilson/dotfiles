@@ -46,6 +46,10 @@ Install 1Password password manager from Homebrew:
 brew install --cask 1password
 ```
 
+After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
+
+![1password_developer_settings_mac](README.assets/1password_developer_settings_mac.png)
+
 #### 1Password CLI Setup
 
 With [1Password CLI](https://developer.1password.com/docs/cli), you can automate administrative tasks and load secrets straight from your command line and in your scripts.
@@ -256,19 +260,45 @@ curl -sSO https://downloads.1password.com/linux/tar/stable/aarch64/1password-lat
 tar -xf 1password-latest.tar.gz
 sudo mkdir -p /opt/1Password
 sudo mv 1password-*/* /opt/1Password
-cd ~
 sudo /opt/1Password/after-install.sh
+cd ~
+mkdir ~/.ssh
+chmod 700 ~/.ssh
 touch ~/.ssh/config
-# make sure to copy or link /opt/1Password/resources/1password.desktop and /opt/1Password/resources/icons/ into /usr/share/applications/ and /usr/share/icons/ respectively, and then update the icon cache by running
-gtk-update-icon-cache /usr/share/icons/hicolor
+cd /usr/share/applications/
+sudo ln -s /opt/1Password/resources/1password.desktop 1password.desktop
+cd /usr/share/icons/hicolor/256x256/apps/
+sudo ln -s /opt/1Password/resources/icons/hicolor/256x256/apps/1password.png 1password.png
+cd /usr/share/icons/hicolor/32x32/apps/
+sudo ln -s /opt/1Password/resources/icons/hicolor/32x32/apps/1password.png 1password.png
+cd /usr/share/icons/hicolor/512x512/apps/
+sudo ln -s /opt/1Password/resources/icons/hicolor/512x512/apps/1password.png 1password.png
+cd /usr/share/icons/hicolor/64x64/apps/
+sudo ln -s /opt/1Password/resources/icons/hicolor/64x64/apps/1password.png 1password.png
+sudo gtk-update-icon-cache /usr/share/icons/hicolor
 ```
+
+After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
+
+![1password_developer_settings_ubuntu](README.assets/1password_developer_settings_ubuntu.png)
 
 #### 1Password CLI Setup
 
 With [1Password CLI](https://developer.1password.com/docs/cli), you can automate administrative tasks and load secrets straight from your command line and in your scripts.
 
 ```sh
-sudo apt install 1password-cli
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | sudo tee /etc/apt/sources.list.d/1password.list
+
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+
+sudo apt update && sudo apt install 1password-cli
+
+op --version
 ```
 
 #### dotfiles Setup
@@ -286,7 +316,7 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 1. To use the prompt shown in the photo above, install https://starship.rs/:
 
    ```sh
-   sudo snap install starship
+   curl -sS https://starship.rs/install.sh | sh
    ```
 
 2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
@@ -297,18 +327,17 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
    sudo apt install gconf2
    git clone https://github.com/aaron-williamson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
    # a new profile needs to be created in the terminal preferences UI before running the next command, otherwise it will appear to do nothing (it can be deleted afterwards)
-   .config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
+   ~/.config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
    ```
 
 4. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
 
    ```sh
    cd ~/Downloads
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hasklig.zip
+   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Hasklig.zip
    mkdir -p ~/.local/share/fonts
    unzip Hasklig.zip -d ~/.local/share/fonts/
    cd ~/.local/share/fonts/
-   rm *Windows*
    cd ~
    fc-cache -fv
    ```
@@ -359,14 +388,20 @@ sudo apt install direnv
    cd ~/.rbenv && src/configure && make -C src
    ```
 
-4. Install [ruby-build](https://github.com/rbenv/ruby-build) plugin that lets you easily install Ruby versions:
+4. Restart the shell to make sure `rbenv` is available
+
+   ```sh
+   rbenv --version
+   ```
+
+5. Install [ruby-build](https://github.com/rbenv/ruby-build) plugin that lets you easily install Ruby versions:
 
    ```sh
    mkdir -p "$(rbenv root)"/plugins
    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
    ```
 
-5. Verify the state of your rbenv installation:
+6. Verify the state of your rbenv installation:
 
    ```sh
    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash
