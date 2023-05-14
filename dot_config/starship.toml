@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: 2023 Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+command_timeout = 1000
