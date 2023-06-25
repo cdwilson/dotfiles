@@ -3,7 +3,7 @@ Upstream-Name: dotfiles
 Upstream-Contact: Chris Wilson <christopher.david.wilson@gmail.com>
 Source: https://github.com/cdwilson/dotfiles/
 
-Files: Library/* macOS/terminal/*
+Files: Library/* macOS/*
 Copyright: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
 License: MIT
 
