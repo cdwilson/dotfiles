@@ -2,6 +2,10 @@
 #
 # SPDX-License-Identifier: MIT
 
+{{ if eq .chezmoi.os "darwin" -}}
+Include ~/.orbstack/ssh/config
+{{- end }}
+
 Host *
 {{- if eq .chezmoi.os "darwin" }}
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

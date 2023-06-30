@@ -242,3 +242,14 @@ if [ -r "${HOME}/.config/op/plugins.sh" ]; then
     # shellcheck source=/dev/null
     . "${HOME}/.config/op/plugins.sh"
 fi
+
+# ------------------------------------------------------------------------------
+# OrbStack
+# ------------------------------------------------------------------------------
+
+{{- if eq .chezmoi.os "darwin" }}
+if [ -r "${HOME}/.orbstack/shell/init.bash" ]; then
+    # shellcheck source=/dev/null
+    . "${HOME}/.orbstack/shell/init.bash"
+fi
+{{- end }}
