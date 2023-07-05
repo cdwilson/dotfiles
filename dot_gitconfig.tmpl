@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: MIT
 
 [user]
-	name = Chris Wilson
-	email = {{ .email }}
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMmOdgdN3KlDNWhR7qRVqmJnBPPwMLdV+J6IMlKN3MPd
+    name = Chris Wilson
+    email = {{ .email }}
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMmOdgdN3KlDNWhR7qRVqmJnBPPwMLdV+J6IMlKN3MPd
 [gpg]
     format = ssh
 
@@ -15,80 +15,80 @@
 {{- else if eq .chezmoi.os "linux" }}
     program = "/opt/1Password/op-ssh-sign"
 {{- end }}
-	allowedSignersFile = "~/.ssh/allowed_signers"
+    allowedSignersFile = "~/.ssh/allowed_signers"
 [commit]
     gpgsign = true
 [core]
-	editor = code --wait
-	excludesfile = ~/.gitignore
-	quotepath = false
+    editor = code --wait
+    excludesfile = ~/.gitignore
+    quotepath = false
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
-	ecm = commit --allow-empty-message --no-edit
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	stash-unapply = !git stash show -p | git apply -R
-	amend = commit --amend --no-edit
-	gerrit = push origin HEAD:refs/for/master
-	prepush = log --graph --stat origin/master..
-	sdiff = !git diff && git submodule foreach 'git diff'
-	spush = push --recurse-submodules=on-demand
-	supdate = submodule update --remote --merge
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    ecm = commit --allow-empty-message --no-edit
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    stash-unapply = !git stash show -p | git apply -R
+    amend = commit --amend --no-edit
+    gerrit = push origin HEAD:refs/for/master
+    prepush = log --graph --stat origin/master..
+    sdiff = !git diff && git submodule foreach 'git diff'
+    spush = push --recurse-submodules=on-demand
+    supdate = submodule update --remote --merge
 [color "diff"]
-	whitespace = red reverse
+    whitespace = red reverse
 [instaweb]
-	local = true
-	httpd = webrick
+    local = true
+    httpd = webrick
 [push]
-	default = simple
-	recurseSubmodules = check
+    default = simple
+    recurseSubmodules = check
 [status]
-	submodulesummary = 1
+    submodulesummary = 1
 [pull]
-	rebase = false
+    rebase = false
 [init]
-	defaultBranch = main
-	templateDir = ~/.git-template
+    defaultBranch = main
+    templateDir = ~/.git-template
 [fetch]
-	prune = true
+    prune = true
 [diff]
 {{- if eq .chezmoi.os "darwin" }}
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 {{- else if eq .chezmoi.os "linux" }}
     tool = meld
 {{- end }}
-	submodule = log
+    submodule = log
 [difftool]
-	prompt = false
+    prompt = false
 [merge]
 {{- if eq .chezmoi.os "darwin" }}
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 {{- else if eq .chezmoi.os "linux" }}
     tool = meld
 {{- end }}
-	summary = true
+    summary = true
 [mergetool]
-	prompt = false
+    prompt = false
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
+    cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+    path =
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+    cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
 {{- else if eq .chezmoi.os "linux" }}
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
@@ -97,9 +97,9 @@
 {{- end }}
 {{- if eq .email "christopher.david.wilson@gmail.com" }}
 [includeIf "gitdir:~/flyingcampdesign/"]
-	path = ~/.gitconfigs/flyingcampdesign.gitconfig
+    path = ~/.gitconfigs/flyingcampdesign.gitconfig
 [includeIf "gitdir:~/cgnd/"]
-	path = ~/.gitconfigs/cgnd.gitconfig
+    path = ~/.gitconfigs/cgnd.gitconfig
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "kicad-ksdiff"]

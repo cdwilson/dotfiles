@@ -3,5 +3,5 @@
 # SPDX-License-Identifier: MIT
 
 [user]
-	email = chris@cgnd.dev
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNWcuEAc3PwNCGADXTx/R6XCXeT++3Zf8lpj0PP/tNH
+    email = chris@cgnd.dev
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNWcuEAc3PwNCGADXTx/R6XCXeT++3Zf8lpj0PP/tNH

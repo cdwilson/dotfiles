@@ -3,5 +3,5 @@
 # SPDX-License-Identifier: MIT
 
 [user]
-	email = chris@flyingcamp.design
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICa3ITeUXDr0hLGJuOtvkHlr5JHJxGSt3tzsQTT04P9j
+    email = chris@flyingcamp.design
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICa3ITeUXDr0hLGJuOtvkHlr5JHJxGSt3tzsQTT04P9j
