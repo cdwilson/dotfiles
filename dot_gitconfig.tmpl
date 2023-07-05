@@ -91,9 +91,9 @@
     trustExitCode = true
 {{- else if eq .chezmoi.os "linux" }}
 [difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+    cmd = meld \"$LOCAL\" \"$REMOTE\"
 [mergetool "meld"]
-    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+    cmd = meld \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\"
 {{- end }}
 {{- if eq .email "christopher.david.wilson@gmail.com" }}
 [includeIf "gitdir:~/flyingcampdesign/"]
@@ -103,5 +103,5 @@
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "kicad-ksdiff"]
-    cmd = kicad-ksdiff $LOCAL $REMOTE
+    cmd = kicad-ksdiff \"$LOCAL\" \"$REMOTE\"
 {{- end }}
