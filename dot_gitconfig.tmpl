@@ -60,6 +60,7 @@
 [fetch]
     prune = true
 [diff]
+#     tool = code
 {{- if eq .chezmoi.os "darwin" }}
     tool = Kaleidoscope
 {{- else if eq .chezmoi.os "linux" }}
@@ -69,6 +70,7 @@
 [difftool]
     prompt = false
 [merge]
+#     tool = code
 {{- if eq .chezmoi.os "darwin" }}
     tool = Kaleidoscope
 {{- else if eq .chezmoi.os "linux" }}
@@ -77,6 +79,10 @@
     summary = true
 [mergetool]
     prompt = false
+[difftool "code"]
+    cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+[mergetool "code"]
+    cmd = cmd = code --wait --merge \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
