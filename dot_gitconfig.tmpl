@@ -8,7 +8,6 @@
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMmOdgdN3KlDNWhR7qRVqmJnBPPwMLdV+J6IMlKN3MPd
 [gpg]
     format = ssh
-
 [gpg "ssh"]
 {{- if eq .chezmoi.os "darwin" }}
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
@@ -60,7 +59,6 @@
 [fetch]
     prune = true
 [diff]
-#     tool = code
 {{- if eq .chezmoi.os "darwin" }}
     tool = Kaleidoscope
 {{- else if eq .chezmoi.os "linux" }}
@@ -70,7 +68,6 @@
 [difftool]
     prompt = false
 [merge]
-#     tool = code
 {{- if eq .chezmoi.os "darwin" }}
     tool = Kaleidoscope
 {{- else if eq .chezmoi.os "linux" }}
@@ -82,7 +79,7 @@
 [difftool "code"]
     cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
 [mergetool "code"]
-    cmd = cmd = code --wait --merge \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"
+    cmd = code --wait --merge \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
