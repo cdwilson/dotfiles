@@ -226,6 +226,16 @@ brew install direnv
    pyenv doctor
    ```
 
+#### `pls` Setup
+
+[pls](https://pls.cli.rs/) is a prettier and more powerful alternative to `ls(1)` written in Rust.
+
+```sh
+brew install pls-rs/pls/pls
+```
+
+To get started [configuring pls](https://pls.cli.rs/reference/conf/), add your changes to `~/.pls.yml`
+
 
 
 ------

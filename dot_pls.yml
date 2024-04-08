@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: 2024 Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+icons:
+  # https://www.nerdfonts.com/cheat-sheet
+  python: "" # nf-seti-python
+  editorconfig: "" # nf-seti-editorconfig
+  c: "" # nf-seti-c
+  config: "" # nf-seti-config
+  database: "" # nf-fa-database
+  html: "" # nf-seti-html
+  css: "" # nf-seti-css
+  sass: "" # nf-seti-sass
+  less: "" # nf-seti-less
+  git: "󰊢" # nf-md-git
+  javascript: "󰌞" # nf-md-language_javascript
+  typescript: "󰛦" # nf-md-language_typescript
+  vue: "" # nf-seti-vue
+  react: "" # nf-seti-react
+specs:
+  # Python
+  - pattern: (\.py|.python-version)$
+    icon: python
+  - pattern: requirements.*\.txt$
+    icon: lock
+  - pattern: ^(pyproject\.toml|Pipfile)$
+    icon: package
+  - pattern: ^poetry\.lock$
+    icon: lock
+    importance: -1
+    collapse:
+      name: pyproject.toml
+  - pattern: ^Pipfile.lock$
+    icon: lock
+    importance: -1
+    collapse:
+      name: Pipfile
+  # EditorConfig
+  - pattern: ^\.editorconfig$
+    icon: editorconfig
+  # C
+  - pattern: (\.c|\.h)$
+    icon: c
+  # Config files
+  - pattern: (\.clang-format|Kconfig|\.conf)$
+    icon: config
+  - pattern: ^\.coverage$
+    icon: database
+  # Web development
+  - pattern: \.x?html?$
+    icon: html
+  - pattern: \.s[ac]ss$
+    icon: sass
+  - pattern: \.less$
+    icon: less
+  - pattern: \.css$
+    icon: css
+    collapse:
+      ext: scss
+  # Git
+  - pattern: \.gitmodules$
+    icon: git
+  # JavaScript/TypeScript
+  - pattern: \.ts$
+    icon: typescript
+  - pattern: \.(c|m)?js$
+    icon: javascript
+    collapse:
+      ext: ts
+  - pattern: \.vue$
+    icon: vue
+  - pattern: \.(j|t)sx$
+    icon: react
+  - pattern: ^package-lock\.json$
+    icon: package
+  - pattern: ^(pnpm-lock.yaml|package-lock.json)$
+    icon: lock
+    importance: -1
+    collapse:
+      name: package.json
+  # Hugo
+  - pattern: \.hugo_build.lock
+    icon: lock
