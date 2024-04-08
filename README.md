@@ -507,6 +507,14 @@ pipx install poetry
 pipx install pdm
 ```
 
+#### hatch Setup
+
+[Hatch](https://hatch.pypa.io/latest/) is a modern, extensible Python project manager. See the [Why Hatch?](https://hatch.pypa.io/latest/why/) page for more information.
+
+```sh
+pipx install hatch
+```
+
 
 
 ------
