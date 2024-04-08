@@ -10,6 +10,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io/).
 
+
+
 ## :computer: System Setup
 
 ### :apple: macOS Setup
@@ -60,16 +62,20 @@ brew install --cask 1password/tap/1password-cli
 
 #### Bash Setup
 
-The older bash 3.2 provided by Apple with macOS is not compatible with modern bash completion (e.g. homebrew's [bash-completion@2](https://formulae.brew.sh/formula/bash-completion@2) requires bash 4.2+ and [Click](https://click.palletsprojects.com/en/8.0.x/shell-completion/) requires bash 4.4+).  Instead, use a more recent bash + bash completion from home-brew.  In addition, optionally install the [bash language server](https://github.com/bash-lsp/bash-language-server/blob/master/bash-lsp) to enable editor extensions like [Bash IDE](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode) for VSCode.
+The older bash 3.2 provided by Apple with macOS is not compatible with modern bash completion (e.g. homebrew's [bash-completion@2](https://formulae.brew.sh/formula/bash-completion@2) requires bash 4.2+ and [Click](https://click.palletsprojects.com/en/8.0.x/shell-completion/) requires bash 4.4+).  Instead, use a more recent bash + bash completion from home-brew.
 
 ```sh
 brew install bash bash-completion@2
+```
 
+In addition, optionally install the [bash language server](https://github.com/bash-lsp/bash-language-server/blob/master/bash-lsp) to enable editor extensions like [Bash IDE](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode) for VSCode.
+
+```sh
 # Optional
 brew install bash-language-server
 ```
 
-#### Login Shell Setup
+#### Terminal.app Setup
 
 On macOS, if you're using a custom shell installed via Homebrew or MacPorts, remember to configure the shell in your terminal preferences.
 
@@ -94,6 +100,8 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
    /opt/homebrew/bin/bash <-- Add your shell here
    ```
 
+3. To use the Terminal.app profile, just double click the [`macOS/terminal/cdwilson.terminal`](macOS/terminal/cdwilson.terminal) file in Finder.
+
 #### dotfiles Setup
 
 Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/) (**make sure to change `cdwilson` to your GitHub username!**):
@@ -102,11 +110,11 @@ Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 ```
 
-#### Terminal.app Setup
+#### Starship Setup
 
-![macos_terminal](README.assets/macos_terminal.png)
+[Starship](https://starship.rs) is the minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
-1. To use the prompt shown in the photo above, install https://starship.rs/:
+1. Install starship:
 
    ```sh
    # via Homebrew for Mac
@@ -115,15 +123,35 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
 
-3. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+#### Font Setup
+
+To install the [Monaspace](https://monaspace.githubnext.com/) font used in my iTerm2 profile below, make sure to install the patched "Monaspice" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+
+```sh
+# via Homebrew for Mac
+brew tap homebrew/cask-fonts
+
+# Monaspace Nerd Font
+brew install --cask font-monaspace-nerd-font
+```
+
+#### iTerm2 Setup
+
+[iTerm2](https://iterm2.com/) is a replacement for Terminal and the successor to iTerm.
+
+1. Install iTerm2 via Homebrew:
 
    ```sh
-   # via Homebrew for Mac
-   brew tap homebrew/cask-fonts
-   brew install --cask font-hasklug-nerd-font
+   brew install --cask iterm2
    ```
 
-4. To use the Terminal.app profile shown in the photo above, just double click the [macOS/terminal/cdwilson.terminal](macOS/terminal/cdwilson.terminal) file in Finder.
+2. Install the Tomorrow Night color profile from [`macOS/iTerm2/color_presets/Tomorrow Night.itermcolors`](macOS/iTerm2/color_presets/Tomorrow Night.itermcolors):
+
+   ![iterm2_colors_tomorrow_night](README.assets/iterm2_colors_tomorrow_night.png)
+
+3. Install Homebrew Bash (ARM) profile from [`macOS/iTerm2/profiles/Homebrew Bash (ARM).json`](macOS/iTerm2/profiles/Homebrew Bash (ARM).json):
+
+   ![iterm2_profile_homebrew_bash_arm](README.assets/iterm2_profile_homebrew_bash_arm.png)
 
 #### `pipx` Setup
 
@@ -204,6 +232,8 @@ brew install direnv
    pyenv doctor
    ```
 
+
+
 ------
 
 ### :penguin: Ubuntu Linux Setup
@@ -216,6 +246,7 @@ Update package information from the package repository and install dependencies:
 sudo apt update
 sudo apt upgrade
 sudo apt install curl
+sudo locale-gen en_US.UTF-8
 
 # Optional: install a GUI desktop on a server image
 sudo apt install ubuntu-desktop
@@ -240,7 +271,9 @@ Install the latest version of Git from the package repository:
 sudo apt install git gpg
 ```
 
-#### 1Password Setup for amd64
+#### 1Password Setup
+
+##### 1Password Setup for amd64
 
 ```sh
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -252,7 +285,7 @@ curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --d
 sudo apt update && sudo apt install 1password
 ```
 
-#### 1Password Setup for arm64
+##### 1Password Setup for arm64
 
 ```sh
 cd ~/Downloads
@@ -311,8 +344,6 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 #### GNOME Terminal Setup
 
-![ubuntu_terminal](README.assets/ubuntu_terminal.png)
-
 1. To use the prompt shown in the photo above, install https://starship.rs/:
 
    ```sh
@@ -324,21 +355,19 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 3. To use the GNOME Terminal profile colors shown in the photo above, install https://github.com/aarowill/base16-gnome-terminal:
 
    ```sh
-   sudo apt install gconf2
+   sudo apt install gconf2 uuid-runtime
    git clone https://github.com/aaron-williamson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
    # a new profile needs to be created in the terminal preferences UI before running the next command, otherwise it will appear to do nothing (it can be deleted afterwards)
    ~/.config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
    ```
 
-4. To use the [Hasklig](https://github.com/i-tu/Hasklig) font shown in the photo above, make sure to install the patched "Hasklug" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+4. To use the [Monaspace](https://github.com/i-tu/Hasklig) font, make sure to install the patched "Monaspice" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
 
    ```sh
    cd ~/Downloads
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Hasklig.zip
+   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/Monaspace.zip
    mkdir -p ~/.local/share/fonts
-   unzip Hasklig.zip -d ~/.local/share/fonts/
-   cd ~/.local/share/fonts/
-   cd ~
+   unzip Monaspace.zip -d ~/.local/share/fonts/
    fc-cache -fv
    ```
 
@@ -437,6 +466,8 @@ sudo apt install direnv
    pyenv doctor
    ```
 
+
+
 ------
 
 ### 🔐 GitHub Commit Verification Setup
@@ -447,6 +478,8 @@ This allows git commits made via the GitHub web UI to be verified locally (e.g. 
 curl https://github.com/web-flow.gpg | gpg --import
 gpg --edit-key noreply@github.com trust quit # choose option 5 = I trust ultimately
 ```
+
+
 
 ------
 
@@ -479,6 +512,8 @@ pipx install poetry
 ```sh
 pipx install pdm
 ```
+
+
 
 ------
 
