@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
-
-SPDX-License-Identifier: CC-BY-SA-4.0
--->
-
 # :house: dotfiles
 
 [![REUSE status](https://api.reuse.software/badge/github.com/cdwilson/dotfiles/)](https://api.reuse.software/info/github.com/cdwilson/dotfiles/)

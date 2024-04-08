@@ -7,6 +7,6 @@ Files: Library/* macOS/*
 Copyright: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
 License: MIT
 
-Files: README.assets/*
+Files: README.md README.assets/*
 Copyright: 2022 Chris Wilson <christopher.david.wilson@gmail.com>
 License: CC-BY-SA-4.0
