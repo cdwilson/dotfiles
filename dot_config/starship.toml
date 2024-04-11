@@ -65,7 +65,7 @@ vimcmd_visual_symbol = '[❮](yellow)'
 disabled = false
 
 [shlvl]
-disabled = false
+disabled = true
 style = 'fg:bright-blue'
 format = '[$symbol]($style)'
 repeat = true
