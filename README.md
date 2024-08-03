@@ -531,13 +531,12 @@ pipx install hatch
 
 ## License Information
 
-This repository is compliant with version 3.0 of the [REUSE Specification](https://reuse.software/spec/).
+This repository is compliant with version 3.2 of the [REUSE Specification](https://reuse.software/spec/).
 
-License files are contained in the [LICENSES/](LICENSES/) directory and additional license & copyright information can be found in [.reuse/dep5](.reuse/dep5).
+License files are contained in the [LICENSES/](LICENSES/) directory and additional copyright & license information can be found in [REUSE.toml](REUSE.toml).
 
-Run the following for detailed copyright & license information on individual files:
+Install the [reuse tool](https://github.com/fsfe/reuse-tool) and run the following commands for detailed copyright & license information on individual files:
 
 ```sh
-pip install reuse
 reuse spdx
 ```
