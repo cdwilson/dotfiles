@@ -215,20 +215,6 @@ if executable_exists op; then
 fi
 
 # ------------------------------------------------------------------------------
-# pipx
-# ------------------------------------------------------------------------------
-if executable_exists pipx; then
-    if executable_exists register-python-argcomplete; then
-        pipx_completions=$(register-python-argcomplete pipx)
-    elif executable_exists register-python-argcomplete3; then
-        pipx_completions=$(register-python-argcomplete3 pipx)
-    fi
-    if [[ -n "${pipx_completions}" ]]; then
-        eval "${pipx_completions}"
-    fi
-fi
-
-# ------------------------------------------------------------------------------
 # rbenv
 # ------------------------------------------------------------------------------
 if [[ -n "${RBENV_ROOT}" ]] && [[ -d "${RBENV_ROOT}" ]]; then
@@ -237,6 +223,15 @@ if [[ -n "${RBENV_ROOT}" ]] && [[ -d "${RBENV_ROOT}" ]]; then
     rbenv_init=$(rbenv init -)
     rbenv_init_no_path=$(sed '/export PATH/d' <<< "${rbenv_init}")
     eval "${rbenv_init_no_path}"
+fi
+
+# ------------------------------------------------------------------------------
+# uv Bash completion
+# ------------------------------------------------------------------------------
+
+if executable_exists uv; then
+    uv_completion_bash=$(uv generate-shell-completion bash)
+    eval "${uv_completion_bash}"
 fi
 
 # ------------------------------------------------------------------------------

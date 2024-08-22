@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+python-preference = "only-managed"
+compile-bytecode = true
+
+[pip]
+compile-bytecode = true
+verify-hashes = true

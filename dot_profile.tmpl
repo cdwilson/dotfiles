@@ -38,6 +38,7 @@ fi
 # User paths
 # ------------------------------------------------------------------------------
 
+# Note: this is currently the uv installation path for installed tools
 if [ -d "${HOME}/.local/bin" ] ; then
     export PATH="${HOME}/.local/bin:${PATH}"
 fi
@@ -144,16 +145,6 @@ fi
 export PIP_REQUIRE_VIRTUALENV=true
 
 # ------------------------------------------------------------------------------
-# pipx
-# ------------------------------------------------------------------------------
-
-# set the default app location for pipx
-if executable_exists pipx; then
-    export PIPX_BIN_DIR="${HOME}/.local/pipx/bin"
-    export PATH="${PATH}:${PIPX_BIN_DIR}"
-fi
-
-# ------------------------------------------------------------------------------
 # rbenv
 # ------------------------------------------------------------------------------
 
@@ -175,6 +166,7 @@ fi
 # Rust/Cargo
 # ------------------------------------------------------------------------------
 
+# Note: this is currently the uv installation path
 if [ -r "${HOME}/.cargo/env" ]; then
     # shellcheck source=/dev/null
     . "${HOME}/.cargo/env"

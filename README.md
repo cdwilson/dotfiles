@@ -145,12 +145,12 @@ brew install --cask font-monaspace-nerd-font
 
    ![iterm2_profile_homebrew_bash_arm](README.assets/iterm2_profile_homebrew_bash_arm.png)
 
-#### `pipx` Setup
+#### `uv` Setup
 
-[pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
+[uv](https://github.com/astral-sh/uv) is an extremely fast Python package and project manager, written in Rust.
 
 ```sh
-brew install pipx
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 #### `direnv` Setup
@@ -349,12 +349,12 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
    ![ubuntu_terminal_login_shell](README.assets/ubuntu_terminal_login_shell.png)
 
-#### `pipx` Setup
+#### `uv` Setup
 
-[pipx](https://pypa.github.io/pipx/) lets you easily install and run Python applications in isolated environments.
+[uv](https://github.com/astral-sh/uv) is an extremely fast Python package and project manager, written in Rust.
 
 ```sh
-sudo apt install pipx
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 #### `direnv` Setup
@@ -421,26 +421,18 @@ gpg --edit-key noreply@github.com trust quit # choose option 5 = I trust ultimat
 
 ------
 
-### :snake: Install python-based tools via `pipx`
+### :snake: Install python-based tools via `uv`
 
 #### `pre-commit` Setup
 
 [pre-commit](https://pre-commit.com/) is a framework for managing git pre-commit hooks.
 
 ```sh
-pipx install pre-commit
+uv tool install pre-commit
 
 # automatically enabling pre-commit on repositories
 # https://pre-commit.com/#automatically-enabling-pre-commit-on-repositories
 pre-commit init-templatedir ~/.git-template
-```
-
-#### hatch Setup
-
-[Hatch](https://hatch.pypa.io/latest/) is a modern, extensible Python project manager. See the [Why Hatch?](https://hatch.pypa.io/latest/why/) page for more information.
-
-```sh
-pipx install hatch
 ```
 
 ------
