@@ -196,15 +196,13 @@ brew install direnv
    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash
    ```
 
-#### `pls` Setup
+#### `eza` Setup
 
-[pls](https://pls.cli.rs/) is a prettier and more powerful alternative to `ls(1)` written in Rust.
+[eza](https://eza.rocks) is a modern, maintained replacement for ls.
 
 ```sh
-brew install pls-rs/pls/pls
+brew install eza
 ```
-
-To get started [configuring pls](https://pls.cli.rs/reference/conf/), add your changes to `~/.pls.yml`
 
 ------
 
