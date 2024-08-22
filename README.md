@@ -137,11 +137,11 @@ brew install --cask font-monaspace-nerd-font
    brew install --cask iterm2
    ```
 
-2. Install the Tomorrow Night color profile from [`macOS/iTerm2/color_presets/Tomorrow Night.itermcolors`](macOS/iTerm2/color_presets/Tomorrow Night.itermcolors):
+2. Install the Tomorrow Night color profile from [`macOS/iTerm2/color_presets/Tomorrow Night.itermcolors`](macOS/iTerm2/color_presets/Tomorrow%20Night.itermcolors):
 
    ![iterm2_colors_tomorrow_night](README.assets/iterm2_colors_tomorrow_night.png)
 
-3. Install Homebrew Bash (ARM) profile from [`macOS/iTerm2/profiles/Homebrew Bash (ARM).json`](macOS/iTerm2/profiles/Homebrew Bash (ARM).json):
+3. Install Homebrew Bash (ARM) profile from [`macOS/iTerm2/profiles/Homebrew Bash (ARM).json`](macOS/iTerm2/profiles/Homebrew%20Bash%20(ARM).json):
 
    ![iterm2_profile_homebrew_bash_arm](README.assets/iterm2_profile_homebrew_bash_arm.png)
 
