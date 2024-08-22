@@ -4,8 +4,6 @@
 
 My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io/).
 
-
-
 ## :computer: System Setup
 
 ### :apple: macOS Setup
@@ -181,7 +179,7 @@ brew install direnv
 
 3. Optionally, try to compile dynamic bash extension to speed up rbenv. Don't worry if it fails; rbenv will still work normally:
 
-   ```
+   ```sh
    cd ~/.rbenv && src/configure && make -C src
    ```
 
@@ -198,34 +196,6 @@ brew install direnv
    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash
    ```
 
-#### `pyenv` Setup
-
-[pyenv](https://github.com/pyenv/pyenv) is a [rbenv](https://github.com/rbenv/rbenv)-style version manager that lets you easily install and switch between multiple versions of Python.
-
-1. Install dependencies for building Python:
-
-   ```sh
-   brew install openssl readline sqlite3 xz zlib
-   ```
-
-2. Install `pyenv` using [pyenv-installer](https://github.com/pyenv/pyenv-installer):
-
-   ```sh
-   curl https://pyenv.run | bash
-   ```
-
-3. Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't worry if it fails; Pyenv will still work normally:
-
-   ```
-   cd ~/.pyenv && src/configure && make -C src
-   ```
-
-4. Verify the state of your pyenv installation:
-
-   ```sh
-   pyenv doctor
-   ```
-
 #### `pls` Setup
 
 [pls](https://pls.cli.rs/) is a prettier and more powerful alternative to `ls(1)` written in Rust.
@@ -235,8 +205,6 @@ brew install pls-rs/pls/pls
 ```
 
 To get started [configuring pls](https://pls.cli.rs/reference/conf/), add your changes to `~/.pls.yml`
-
-
 
 ------
 
@@ -417,7 +385,7 @@ sudo apt install direnv
 
 3. Optionally, try to compile dynamic bash extension to speed up rbenv. Don't worry if it fails; rbenv will still work normally:
 
-   ```
+   ```sh
    cd ~/.rbenv && src/configure && make -C src
    ```
 
@@ -440,38 +408,6 @@ sudo apt install direnv
    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash
    ```
 
-#### `pyenv` Setup
-
-[pyenv](https://github.com/pyenv/pyenv) is a [rbenv](https://github.com/rbenv/rbenv)-style version manager that lets you easily install and switch between multiple versions of Python.
-
-1. Install dependencies for building Python:
-
-   ```sh
-   sudo apt install make build-essential libssl-dev zlib1g-dev \
-   libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-   libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-   ```
-
-2. Install `pyenv` using [pyenv-installer](https://github.com/pyenv/pyenv-installer):
-
-   ```sh
-   curl https://pyenv.run | bash
-   ```
-
-3. Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't worry if it fails; Pyenv will still work normally:
-
-   ```sh
-   cd ~/.pyenv && src/configure && make -C src
-   ```
-
-4. Verify the state of your pyenv installation:
-
-   ```sh
-   pyenv doctor
-   ```
-
-
-
 ------
 
 ### 🔐 GitHub Commit Verification Setup
@@ -482,8 +418,6 @@ This allows git commits made via the GitHub web UI to be verified locally (e.g. 
 curl https://github.com/web-flow.gpg | gpg --import
 gpg --edit-key noreply@github.com trust quit # choose option 5 = I trust ultimately
 ```
-
-
 
 ------
 
@@ -501,22 +435,6 @@ pipx install pre-commit
 pre-commit init-templatedir ~/.git-template
 ```
 
-#### `poetry` Setup
-
-[poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
-
-```sh
-pipx install poetry
-```
-
-#### `pdm` Setup
-
-[PDM](https://pdm.fming.dev/) is a modern Python package manager with [PEP 582](https://www.python.org/dev/peps/pep-0582/) support. It installs and manages packages in a similar way to `npm` that doesn't need to create a virtualenv at all!
-
-```sh
-pipx install pdm
-```
-
 #### hatch Setup
 
 [Hatch](https://hatch.pypa.io/latest/) is a modern, extensible Python project manager. See the [Why Hatch?](https://hatch.pypa.io/latest/why/) page for more information.
@@ -524,8 +442,6 @@ pipx install pdm
 ```sh
 pipx install hatch
 ```
-
-
 
 ------
 

@@ -172,43 +172,6 @@ if [ -d "${RBENV_ROOT}" ]; then
 fi
 
 # ------------------------------------------------------------------------------
-# pyenv
-# ------------------------------------------------------------------------------
-
-# Manually set PYENV_ROOT for pyenv installed manually via Basic GitHub Checkout
-# https://github.com/pyenv/pyenv#basic-github-checkout
-export PYENV_ROOT="${HOME}/.pyenv"
-
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH="${PYENV_ROOT}/bin:${PATH}"
-    pyenv_init_path=$(pyenv init --path)
-    eval "${pyenv_init_path}"
-fi
-
-# ------------------------------------------------------------------------------
-# pyenv-virtualenv
-# ------------------------------------------------------------------------------
-
-if [ -n "${PYENV_ROOT}" ] && [ -d "${PYENV_ROOT}/plugins/pyenv-virtualenv" ]; then
-    # Don't use `pyenv virtualenv-init -` directly because it doesn't support
-    # --path like pyenv does. Instead, remove any lines that don't set the PATH
-    # and then eval. Then, do the rest of the shell initialization in the
-    # interactive initialization file (e.g. ~/.bashrc).
-    pyenv_virtualenv_init_path=$(pyenv virtualenv-init - | sed '/export PATH/!d')
-    eval "${pyenv_virtualenv_init_path}"
-fi
-
-# ------------------------------------------------------------------------------
-# pdm
-# ------------------------------------------------------------------------------
-
-# https://pdm.fming.dev/#enable-pep-582-globally
-if executable_exists pdm; then
-    pdm_pep582=$(pdm --pep582)
-    eval "${pdm_pep582}"
-fi
-
-# ------------------------------------------------------------------------------
 # Rust/Cargo
 # ------------------------------------------------------------------------------
 

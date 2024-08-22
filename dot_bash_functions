@@ -47,15 +47,3 @@ function_exists ()
 {
     declare -F "$1" > /dev/null
 }
-
-# https://stackoverflow.com/questions/30499795/how-can-i-make-homebrews-python-and-pyenv-live-together
-pyenv_brew_relink ()
-{
-    pyenv_root=$(pyenv root)
-    rm -f "${pyenv_root}"/versions/*-brew
-    # https://github.com/koalaman/shellcheck/wiki/SC2154
-    for i in "${HOMEBREW_CELLAR:?}"/python*/* ; do
-        ln -s -f "${i}" "${pyenv_root}/versions/${i##/*/}-brew"
-    done
-    pyenv rehash
-}

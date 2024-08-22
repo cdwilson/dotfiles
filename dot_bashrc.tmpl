@@ -240,30 +240,6 @@ if [[ -n "${RBENV_ROOT}" ]] && [[ -d "${RBENV_ROOT}" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-# pyenv
-# ------------------------------------------------------------------------------
-
-if [[ -n "${PYENV_ROOT}" ]] && [[ -d "${PYENV_ROOT}" ]]; then
-    pyenv_init=$(pyenv init -)
-    eval "${pyenv_init}"
-fi
-
-# ------------------------------------------------------------------------------
-# pyenv-virtualenv
-# ------------------------------------------------------------------------------
-
-if [[ -n "${PYENV_ROOT}" ]] && [[ -d "${PYENV_ROOT}/plugins/pyenv-virtualenv" ]]; then
-    # https://github.com/pyenv/pyenv-virtualenv#special-environment-variables
-    # export PYENV_VIRTUALENV_VERBOSE_ACTIVATE=1
-
-    # Don't use `pyenv virtualenv-init -` directly because it sets the PATH.
-    # Instead, remove any lines that set the PATH and then eval.
-    pyenv_virtualenv_init=$(pyenv virtualenv-init -)
-    pyenv_virtualenv_init_no_path=$(sed '/export PATH/d' <<< "${pyenv_virtualenv_init}")
-    eval "${pyenv_virtualenv_init_no_path}"
-fi
-
-# ------------------------------------------------------------------------------
 # pip Bash completion
 # ------------------------------------------------------------------------------
 
@@ -271,24 +247,6 @@ fi
 if executable_exists pip; then
     pip_completion_bash=$(pip completion --bash)
     eval "${pip_completion_bash}"
-fi
-
-# ------------------------------------------------------------------------------
-# poetry Bash completion
-# ------------------------------------------------------------------------------
-
-if executable_exists poetry; then
-    poetry_completions_bash=$(poetry completions bash)
-    eval "${poetry_completions_bash}"
-fi
-
-# ------------------------------------------------------------------------------
-# pdm Bash completion
-# ------------------------------------------------------------------------------
-
-if executable_exists pdm; then
-    pdm_completion_bash=$(pdm completion bash)
-    eval "${pdm_completion_bash}"
 fi
 
 # ------------------------------------------------------------------------------
