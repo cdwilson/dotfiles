@@ -7,4 +7,3 @@ compile-bytecode = true
 
 [pip]
 compile-bytecode = true
-verify-hashes = true
