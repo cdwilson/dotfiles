@@ -215,3 +215,18 @@ if [ -r "${HOME}/.orbstack/shell/init.bash" ]; then
     . "${HOME}/.orbstack/shell/init.bash"
 fi
 {{- end }}
+
+# ------------------------------------------------------------------------------
+# OSS CAD Suite
+# ------------------------------------------------------------------------------
+
+if [ -d "${HOME}/.local/opt/oss-cad-suite" ] ; then
+    export PATH="${HOME}/.local/opt/oss-cad-suite/bin:${PATH}"
+fi
+
+# ------------------------------------------------------------------------------
+# Glasgow Interface Explorer
+# ------------------------------------------------------------------------------
+
+# Prioritizes using the system tools over the YoWASP tools
+export GLASGOW_TOOLCHAIN="system,builtin"
