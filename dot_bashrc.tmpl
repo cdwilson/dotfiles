@@ -155,12 +155,18 @@ export LS_OPTIONS='--color=auto'
 alias du1='du -h -d 1'
 alias fn='find . -name'
 alias hi='history | tail -20'
-{{- if eq .chezmoi.os "darwin" }}
 alias ls="eza --icons"
-{{- end }}
 alias la="ls -a" # list all, includes dot files
 alias ll="ls -l" # long list, excludes dot files
 alias lla="ls -la" # long list all, includes dot files
+alias grep="rg"
+{{- if eq .chezmoi.os "linux" }}
+{{-   if eq .chezmoi.osRelease.id "ubuntu" }}
+alias cat="batcat"
+{{   end }}
+{{ else }}
+alias cat="bat"
+{{ end }}
 alias ppath="echo \$PATH | tr ':' '\n'"
 
 # https://support.typora.io/Use-Typora-From-Shell-or-cmd/
@@ -283,4 +289,13 @@ fi
 if executable_exists direnv; then
     direnv_hook_bash=$(direnv hook bash)
     eval "${direnv_hook_bash}"
+fi
+
+# ------------------------------------------------------------------------------
+# fzf
+# ------------------------------------------------------------------------------
+
+if executable_exists fzf; then
+    fzf_bash=$(fzf --bash)
+    eval "${fzf_bash}"
 fi

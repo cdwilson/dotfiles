@@ -204,6 +204,30 @@ brew install direnv
 brew install eza
 ```
 
+#### `ripgrep` Setup
+
+[ripgrep](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches the current directory for a regex pattern.
+
+```sh
+brew install ripgrep
+```
+
+#### `bat` Setup
+
+[bat](https://github.com/sharkdp/bat) is a *cat(1)* clone with syntax highlighting and Git integration.
+
+```sh
+brew install bat
+```
+
+#### `fzf` Setup
+
+[fzf](https://junegunn.github.io/fzf/) is a general-purpose command-line fuzzy finder.
+
+```sh
+brew install fzf
+```
+
 ------
 
 ### :penguin: Ubuntu Linux Setup
@@ -314,7 +338,7 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 #### GNOME Terminal Setup
 
-1. To use the prompt shown in the photo above, install https://starship.rs/:
+1. To use the prompt shown in the photo above, install <https://starship.rs/>:
 
    ```sh
    curl -sS https://starship.rs/install.sh | sh
@@ -322,7 +346,7 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
 
-3. To use the GNOME Terminal profile colors shown in the photo above, install https://github.com/aarowill/base16-gnome-terminal:
+3. To use the GNOME Terminal profile colors shown in the photo above, install <https://github.com/aarowill/base16-gnome-terminal>:
 
    ```sh
    sudo apt install gconf2 uuid-runtime
@@ -405,6 +429,61 @@ sudo apt install direnv
    ```sh
    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash
    ```
+
+#### `eza` Setup
+
+[eza](https://eza.rocks) is a modern, maintained replacement for ls.
+
+First make sure you have the `gpg` command, and otherwise install it via:
+
+```sh
+sudo apt update
+sudo apt install -y gpg
+```
+
+Then install `eza` via:
+
+```sh
+sudo mkdir -p /etc/apt/keyrings
+wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+sudo apt update
+sudo apt install -y eza
+```
+
+#### `ripgrep` Setup
+
+[ripgrep](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches the current directory for a regex pattern.
+
+```sh
+sudo apt install ripgrep
+```
+
+#### `bat` Setup
+
+[bat](https://github.com/sharkdp/bat) is a *cat(1)* clone with syntax highlighting and Git integration.
+
+```sh
+sudo apt install bat
+```
+
+> [!IMPORTANT]
+>
+> Note that the executable may be installed as `batcat` instead of `bat` (due to [a name clash with another package](https://github.com/sharkdp/bat/issues/982)). You can set up a `bat` -> `batcat` symlink or alias to prevent any issues that may come up because of this and to be consistent with other distributions:
+>
+> ```sh
+> mkdir -p ~/.local/bin
+> ln -s /usr/bin/batcat ~/.local/bin/bat
+> ```
+
+#### `fzf` Setup
+
+[fzf](https://junegunn.github.io/fzf/) is a general-purpose command-line fuzzy finder.
+
+```sh
+sudo apt install fzf
+```
 
 ------
 
