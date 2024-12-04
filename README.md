@@ -120,9 +120,6 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 To install the [Monaspace](https://monaspace.githubnext.com/) font used in my iTerm2 profile below, make sure to install the patched "Monaspice" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
 
 ```sh
-# via Homebrew for Mac
-brew tap homebrew/cask-fonts
-
 # Monaspace Nerd Font
 brew install --cask font-monaspace-nerd-font
 ```
