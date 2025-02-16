@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# [[items]]
+# path = "https://github.com/tinted-theming/tinted-terminal"
+# name = "tinted-terminal-ghostty"
+# themes-dir = "themes/ghostty"
+# # With `theme` set to "tinted-theming", this will be where Ghostty looks for the theme file:
+# hook = "command cp -f %f ~/.config/ghostty/themes/tinted-theming"
+# supported-systems = ["base16", "base24"]
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-terminal"
+name = "tinted-terminal"
+themes-dir = "themes/ghostty-scripts"
+# With `theme` set to "tinted-theming", this will be where Ghostty looks for the theme file:
+hook = '''
+sh %f \
+   -g 5 \
+   -s 16,12,10 \
+   > ~/.config/ghostty/themes/tinted-theming
+'''
+supported-systems = ["base16", "base24"]
