@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+font-family = Monaspace Neon Frozen
+font-size = 14
+cursor-style = underline
+cursor-click-to-move = true
+theme = cdwilson
+adjust-cell-height = 20%
+clipboard-paste-protection = true

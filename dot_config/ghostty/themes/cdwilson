@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+palette = 0=#1d1e20
+palette = 1=#be6b68
+palette = 2=#b6bc72
+palette = 3=#e9c77f
+palette = 4=#87a1bb
+palette = 5=#ad95b8
+palette = 6=#94bcb6
+palette = 7=#c5c7c6
+palette = 8=#969796
+palette = 9=#d39667
+palette = 10=#28292d
+palette = 11=#373a40
+palette = 12=#b4b6b4
+palette = 13=#e0e0e0
+palette = 14=#9a6a5c
+palette = 15=#feffff
+background = #1d1e20
+foreground = #c5c7c6
+cursor-color = #c5c7c6
+cursor-text = #1d1e20
+selection-background = #373a40
+selection-foreground = #c5c7c6
