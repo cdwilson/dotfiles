@@ -42,7 +42,7 @@ brew install --cask 1password
 
 After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
 
-![1password_developer_settings_mac](README.assets/1password_developer_settings_mac.png)
+![](README.assets/1password_developer_settings_mac.png)
 
 #### 1Password CLI Setup
 
@@ -73,7 +73,7 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
 
 1. Change the Command preference to the full path of your shell:
 
-   ![macos_terminal_shell_command](README.assets/macos_terminal_shell_command.png)
+   ![](README.assets/macos_terminal_shell_command.png)
 
 3. Add your shell to `/etc/shells`:
 
@@ -117,11 +117,24 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 #### Font Setup
 
-To install the [Monaspace](https://monaspace.githubnext.com/) font used in my iTerm2 profile below, make sure to install the patched "Monaspice" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+To install the [Monaspace](https://monaspace.githubnext.com/) font:
 
 ```sh
-# Monaspace Nerd Font
-brew install --cask font-monaspace-nerd-font
+brew install --cask font-monaspace
+brew install --cask font-symbols-only-nerd-font
+```
+
+> [!NOTE]
+> Although Monaspace added nerd fonts in the `v1.200` release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
+>
+> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons.
+
+#### Ghostty Setup
+
+[Ghostty](https://ghostty.org/) is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+
+```sh
+brew install --cask ghostty
 ```
 
 #### iTerm2 Setup
@@ -136,11 +149,11 @@ brew install --cask font-monaspace-nerd-font
 
 2. Install Homebrew Bash (ARM) profile from [`macOS/iTerm2/profiles/Homebrew Bash (ARM).json`](macOS/iTerm2/profiles/Homebrew%20Bash%20(ARM).json):
 
-   ![iterm2_profile_homebrew_bash_arm](README.assets/iterm2_profile_homebrew_bash_arm.png)
+   ![](README.assets/iterm2_profile_homebrew_bash_arm.png)
 
 3. Install the `base16-tomorrow-night` color profile from [`macOS/iTerm2/color_presets/base16-tomorrow-night.itermcolors`](macOS/iTerm2/color_presets/base16-tomorrow-night.itermcolors):
 
-   ![iterm2_colors_tomorrow_night](README.assets/iterm2_colors_tomorrow_night.png)
+   ![](README.assets/iterm2_colors_tomorrow_night.png)
 
 #### `uv` Setup
 
@@ -304,7 +317,7 @@ sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
 After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
 
-![1password_developer_settings_ubuntu](README.assets/1password_developer_settings_ubuntu.png)
+![](README.assets/1password_developer_settings_ubuntu.png)
 
 #### 1Password CLI Setup
 
@@ -333,9 +346,11 @@ Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 ```
 
-#### GNOME Terminal Setup
+#### Starship Setup
 
-1. To use the prompt shown in the photo above, install <https://starship.rs/>:
+[Starship](https://starship.rs) is the minimal, blazing-fast, and infinitely customizable prompt for any shell!
+
+1. Install starship:
 
    ```sh
    curl -sS https://starship.rs/install.sh | sh
@@ -343,7 +358,40 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
 
-3. To use the GNOME Terminal profile colors shown in the photo above, install <https://github.com/aarowill/base16-gnome-terminal>:
+#### Font Setup
+
+To install the [Monaspace](https://monaspace.githubnext.com/) font:
+
+```sh
+cd ~/Downloads
+wget https://github.com/githubnext/monaspace/releases/download/v1.200/monaspace-v1.200.zip
+mkdir -p ~/.local/share/fonts
+unzip monaspace-v1.200.zip
+cd monaspace-v1.200/
+bash util/install_linux.sh
+cd -
+rm -rf monaspace-v1.200/
+fc-cache -fv
+```
+
+To install the `Symbols Nerd Font` font from [Nerd Fonts](https://www.nerdfonts.com/#home):
+
+```sh
+cd ~/Downloads
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip
+mkdir -p ~/.local/share/fonts
+unzip NerdFontsSymbolsOnly.zip -d ~/.local/share/fonts/
+fc-cache -fv
+```
+
+> [!NOTE]
+> Although Monaspace added nerd fonts in the `v1.200` release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
+>
+> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons.
+
+#### GNOME Terminal Setup
+
+1. To use the [Base16](https://github.com/chriskempson/base16) color scheme, install <https://github.com/aarowill/base16-gnome-terminal>:
 
    ```sh
    sudo apt install gconf2 uuid-runtime
@@ -352,21 +400,22 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
    ~/.config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
    ```
 
-4. To use the [Monaspace](https://github.com/i-tu/Hasklig) font, make sure to install the patched "Monaspice" version from [Nerd Fonts](https://www.nerdfonts.com/#home) (Starship uses many of the icons in Nerd Fonts version):
+2. To use the [Monaspace](https://github.com/i-tu/Hasklig) font:
 
-   ```sh
-   cd ~/Downloads
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/Monaspace.zip
-   mkdir -p ~/.local/share/fonts
-   unzip Monaspace.zip -d ~/.local/share/fonts/
-   fc-cache -fv
-   ```
+   ![](README.assets/ubuntu_custom_font.png)
 
-   ![ubuntu_custom_font](README.assets/ubuntu_custom_font.png)
+3. Make sure the "Run command as a login shell" is checked to ensure that `.bash_profile` is sourced:
 
-5. Make sure the "Run command as a login shell" is checked to ensure that `.bash_profile` is sourced:
+   ![](README.assets/ubuntu_terminal_login_shell.png)
 
-   ![ubuntu_terminal_login_shell](README.assets/ubuntu_terminal_login_shell.png)
+#### Ghostty Setup
+
+[Ghostty](https://ghostty.org/) is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+
+```sh
+sudo apt install libonig5
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+```
 
 #### `uv` Setup
 
@@ -479,7 +528,13 @@ sudo apt install bat
 [fzf](https://junegunn.github.io/fzf/) is a general-purpose command-line fuzzy finder.
 
 ```sh
-sudo apt install fzf
+# Installing via apt currently installs fzf < 0.48.0 which is needed for the --bash option
+# sudo apt install fzf
+
+# Instead, install the latest version from GitHub via go install
+# TODO: switch back to the apt method once the Ubuntu fzf package is updated >= 0.48.0
+sudo apt install golang-go
+go install github.com/junegunn/fzf@latest
 ```
 
 ------
