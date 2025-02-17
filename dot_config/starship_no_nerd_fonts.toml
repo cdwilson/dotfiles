@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Generated from https://starship.rs/presets/no-nerd-font
+
+[battery]
+full_symbol = "• "
+charging_symbol = "⇡ "
+discharging_symbol = "⇣ "
+unknown_symbol = "❓ "
+empty_symbol = "❗ "
+
+[erlang]
+symbol = "ⓔ "
+
+[nodejs]
+symbol = "[⬢](bold green) "
+
+[pulumi]
+symbol = "🧊 "
+
+[typst]
+symbol = "t "

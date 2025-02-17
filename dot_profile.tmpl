@@ -123,6 +123,15 @@ fi
 # esac
 
 # ------------------------------------------------------------------------------
+# Starship
+# ------------------------------------------------------------------------------
+
+if [[ (-n "$TERM_PROGRAM" && "$TERM_PROGRAM" == "Apple_Terminal") || -n "$GNOME_TERMINAL_SERVICE" ]]; then
+    echo "Using custom STARSHIP_CONFIG without Nerd Fonts"
+    export STARSHIP_CONFIG=~/.config/starship_no_nerd_fonts.toml
+fi
+
+# ------------------------------------------------------------------------------
 # pkg-config
 # ------------------------------------------------------------------------------
 
