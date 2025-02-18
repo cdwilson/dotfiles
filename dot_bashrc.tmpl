@@ -309,6 +309,10 @@ fi
 # ------------------------------------------------------------------------------
 
 # Manually load the VS Code shell integration for Bash
+#
+# Note: make sure to disable the integrated terminal in VS Code settings:
+#     "terminal.integrated.shellIntegration.enabled": false
+#
 # https://code.visualstudio.com/docs/terminal/shell-integration
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
     . "$(code --locate-shell-integration-path bash)"
