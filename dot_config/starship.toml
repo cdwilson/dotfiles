@@ -30,12 +30,8 @@ $package\
 [](fg:blue bg:bright-yellow)\
 $docker_context\
 [](fg:bright-yellow bg:bright-green)\
-$cmd_duration\
-[](fg:bright-green)\
-$fill\
-[](fg:bright-green)\
 $battery\
-$time\
+$cmd_duration\
 [](fg:bright-green)\
 $line_break\
 $shlvl\
@@ -70,8 +66,8 @@ style = 'fg:bright-blue'
 format = '[$symbol]($style)'
 repeat = true
 symbol = '❯'
-repeat_offset = 0
-threshold = 1
+repeat_offset = 1
+threshold = 0
 
 # System
 
@@ -248,7 +244,7 @@ format = '[( 󰔛 $duration)]($style)'
 # --- Right Prompt ---
 
 [battery]
-format = '[($symbol$percentage )]($style)'
+format = '[( $symbol$percentage)]($style)'
 
 [[battery.display]]
 threshold = 10
