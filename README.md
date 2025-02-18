@@ -8,6 +8,8 @@ My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io
 
 ### :apple: macOS Setup
 
+![macos_fastfetch](README.assets/macos_fastfetch.png)
+
 #### Command Line Tools for Xcode Setup
 
 Once you have Xcode installed, open a terminal and run the following to install the required command line developer tools:
@@ -238,9 +240,19 @@ brew install bat
 brew install fzf
 ```
 
+#### `fastfetch` Setup
+
+[fastfetch](https://github.com/fastfetch-cli/fastfetch) is a maintained, feature-rich and performance oriented, neofetch like system information tool.
+
+```sh
+brew install fastfetch
+```
+
 ------
 
 ### :penguin: Ubuntu Linux Setup
+
+![](README.assets/ubuntu_fastfetch.png)
 
 #### `apt` Setup
 
@@ -537,6 +549,16 @@ sudo apt install bat
 # TODO: switch back to the apt method once the Ubuntu fzf package is updated >= 0.48.0
 sudo apt install golang-go
 go install github.com/junegunn/fzf@latest
+```
+
+#### `fastfetch` Setup
+
+[fastfetch](https://github.com/fastfetch-cli/fastfetch) is a maintained, feature-rich and performance oriented, neofetch like system information tool.
+
+```sh
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+sudo apt update
+sudo apt install fastfetch
 ```
 
 ------
