@@ -391,7 +391,11 @@ fc-cache -fv
 
 #### GNOME Terminal Setup
 
-1. To use the [Base16](https://github.com/chriskempson/base16) color scheme, install <https://github.com/aarowill/base16-gnome-terminal>:
+1. To use the [Monaspace](https://github.com/i-tu/Hasklig) font:
+
+   ![](README.assets/ubuntu_custom_font.png)
+
+2. To use the [Base16](https://github.com/chriskempson/base16) color scheme, install <https://github.com/aarowill/base16-gnome-terminal>:
 
    ```sh
    sudo apt install gconf2 uuid-runtime
@@ -400,9 +404,7 @@ fc-cache -fv
    ~/.config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
    ```
 
-2. To use the [Monaspace](https://github.com/i-tu/Hasklig) font:
-
-   ![](README.assets/ubuntu_custom_font.png)
+   ![](README.assets/ubuntu_terminal_custom_colors.png)
 
 3. Make sure the "Run command as a login shell" is checked to ensure that `.bash_profile` is sourced:
 

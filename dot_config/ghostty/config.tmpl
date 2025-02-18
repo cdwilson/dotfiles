@@ -3,7 +3,11 @@
 # SPDX-License-Identifier: MIT
 
 font-family = Monaspace Neon Frozen
-font-size = 14
+{{- if eq .chezmoi.os "darwin" }}
+  font-size = 14
+{{- else if eq .chezmoi.os "linux" }}
+  font-size = 11
+{{- end }}
 cursor-style = underline
 cursor-click-to-move = true
 adjust-cell-height = 20%
