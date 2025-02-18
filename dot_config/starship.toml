@@ -61,7 +61,7 @@ vimcmd_visual_symbol = '[❮](yellow)'
 disabled = false
 
 [shlvl]
-disabled = true
+disabled = true  # Disabled because VS Code Terminal starts with a shlvl of 3
 style = 'fg:bright-blue'
 format = '[$symbol]($style)'
 repeat = true
