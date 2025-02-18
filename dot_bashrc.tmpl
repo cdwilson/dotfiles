@@ -303,3 +303,13 @@ if executable_exists fzf; then
     fzf_bash=$(fzf --bash)
     eval "${fzf_bash}"
 fi
+
+# ------------------------------------------------------------------------------
+# VS Code Shell Integration
+# ------------------------------------------------------------------------------
+
+# Manually load the VS Code shell integration for Bash
+# https://code.visualstudio.com/docs/terminal/shell-integration
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+    . "$(code --locate-shell-integration-path bash)"
+fi
