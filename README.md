@@ -92,7 +92,7 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
    /opt/homebrew/bin/bash <-- Add your shell here
    ```
 
-3. To use the Terminal.app profile, just double click the [`macOS/terminal/cdwilson.terminal`](macOS/terminal/cdwilson.terminal) file in Finder.
+3. To use the Terminal.app profile, just double click the [`cdwilson.terminal`](macOS/Terminal/cdwilson.terminal) file in Finder.
 
 #### dotfiles Setup
 
