@@ -96,7 +96,10 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
 
 #### dotfiles Setup
 
-Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/) (**make sure to change `cdwilson` to your GitHub username!**):
+Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/).
+
+> [!IMPORTANT]
+> Make sure to change `cdwilson` to your GitHub username!
 
 ```sh
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
@@ -350,7 +353,10 @@ op --version
 
 #### dotfiles Setup
 
-Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/) (**make sure to change `cdwilson` to your GitHub username!**):
+Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io/).
+
+> [!IMPORTANT]
+> Make sure to change `cdwilson` to your GitHub username!
 
 ```sh
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
