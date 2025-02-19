@@ -1,7 +1,5 @@
 # :house: dotfiles
 
-[![REUSE status](https://api.reuse.software/badge/github.com/cdwilson/dotfiles/)](https://api.reuse.software/info/github.com/cdwilson/dotfiles/)
-
 My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io/).
 
 ## :computer: System Setup
@@ -591,6 +589,8 @@ pre-commit init-templatedir ~/.git-template
 ------
 
 ## License Information
+
+[![REUSE status](https://api.reuse.software/badge/github.com/cdwilson/dotfiles/)](https://api.reuse.software/info/github.com/cdwilson/dotfiles/)
 
 This repository is compliant with version 3.2 of the [REUSE Specification](https://reuse.software/spec/).
 
