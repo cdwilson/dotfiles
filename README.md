@@ -109,14 +109,15 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 [Starship](https://starship.rs) is the minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
-1. Install starship:
+Install starship:
 
-   ```sh
-   # via Homebrew for Mac
-   brew install starship
-   ```
+```sh
+# via Homebrew for Mac
+brew install starship
+```
 
-2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
+> [!TIP]
+> To [configure Starship](https://starship.rs/config/#prompt), add your changes to [`dot_config/starship.toml`](dot_config/starship.toml).
 
 #### Font Setup
 
@@ -128,9 +129,9 @@ brew install --cask font-symbols-only-nerd-font
 ```
 
 > [!NOTE]
-> Although Monaspace added nerd fonts in the `v1.200` release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
+> Although Monaspace added nerd fonts in the [`v1.200`](https://github.com/githubnext/monaspace/releases/tag/v1.200) release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
 >
-> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons.
+> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons. Terminals that do not provide a fallback font configuration option (e.g. macOS Terminal.app & GNOME Terminal) are configured to use a simplified prompt which does not use Nerd Fonts.
 
 #### Ghostty Setup
 
@@ -139,6 +140,9 @@ brew install --cask font-symbols-only-nerd-font
 ```sh
 brew install --cask ghostty
 ```
+
+> [!TIP]
+> To [configure Ghostty](https://starship.rs/config/#prompt), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl).
 
 #### iTerm2 Setup
 
@@ -366,13 +370,14 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
 
 [Starship](https://starship.rs) is the minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
-1. Install starship:
+Install starship:
 
-   ```sh
-   curl -sS https://starship.rs/install.sh | sh
-   ```
+```sh
+curl -sS https://starship.rs/install.sh | sh
+```
 
-2. To get started [configuring starship](https://starship.rs/config/#prompt), add your changes to `~/.config/starship.toml`
+> [!TIP]
+> To [configure Starship](https://starship.rs/config/#prompt), add your changes to [`dot_config/starship.toml`](dot_config/starship.toml).
 
 #### Font Setup
 
@@ -401,9 +406,9 @@ fc-cache -fv
 ```
 
 > [!NOTE]
-> Although Monaspace added nerd fonts in the `v1.200` release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
+> Although Monaspace added nerd fonts in the [`v1.200`](https://github.com/githubnext/monaspace/releases/tag/v1.200) release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
 >
-> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons.
+> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons. Terminals that do not provide a fallback font configuration option (e.g. macOS Terminal.app & GNOME Terminal) are configured to use a simplified prompt which does not use Nerd Fonts.
 
 #### GNOME Terminal Setup
 
@@ -411,7 +416,7 @@ fc-cache -fv
 
    ![](README.assets/ubuntu_custom_font.png)
 
-2. To use the [Base16](https://github.com/chriskempson/base16) color scheme, install <https://github.com/aarowill/base16-gnome-terminal>:
+2. To use the [Base16](https://github.com/chriskempson/base16) Tomorrow Night color scheme, install <https://github.com/aarowill/base16-gnome-terminal>:
 
    ```sh
    sudo apt install gconf2 uuid-runtime
@@ -434,6 +439,9 @@ fc-cache -fv
 sudo apt install libonig5
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 ```
+
+> [!TIP]
+> To [configure Ghostty](https://starship.rs/config/#prompt), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl).
 
 #### `uv` Setup
 
