@@ -6,7 +6,7 @@ My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io
 
 ### :apple: macOS Setup
 
-![macos_fastfetch](README.assets/macos_fastfetch.png)
+![](README.assets/macos_fastfetch.png)
 
 #### Command Line Tools for Xcode Setup
 
