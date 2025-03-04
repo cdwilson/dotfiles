@@ -317,3 +317,12 @@ fi
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
     . "$(code --locate-shell-integration-path bash)"
 fi
+
+# ------------------------------------------------------------------------------
+# nrfutil Bash completion
+# ------------------------------------------------------------------------------
+
+# From `nrfutil completion install bash`
+if [[ -r "${HOME}/.nrfutil/share/nrfutil-completion/scripts/bash/setup.bash" ]]; then
+    . "${HOME}/.nrfutil/share/nrfutil-completion/scripts/bash/setup.bash"
+fi
