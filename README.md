@@ -92,7 +92,7 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
    /opt/homebrew/bin/bash <-- Add your shell here
    ```
 
-3. To use the Terminal.app profile, just double click the [`cdwilson.terminal`](macOS/Terminal/cdwilson.terminal) file in Finder.
+3. To use the Terminal.app profile, just double click the [`cdwilson-tomorrow-night.terminal`](macOS/Terminal/cdwilson-tomorrow-night.terminal) file in Finder.
 
 #### dotfiles Setup
 
@@ -158,7 +158,7 @@ brew install --cask ghostty
 
    ![](README.assets/iterm2_profile_homebrew_bash_arm.png)
 
-3. Install the `base16-tomorrow-night` color profile from [`macOS/iTerm2/color_presets/base16-tomorrow-night.itermcolors`](macOS/iTerm2/color_presets/base16-tomorrow-night.itermcolors):
+3. Install the `cdwilson-tomorrow-night` color profile from [`macOS/iTerm2/color_presets/cdwilson-tomorrow-night.itermcolors`](macOS/iTerm2/color_presets/cdwilson-tomorrow-night.itermcolors):
 
    ![](README.assets/iterm2_colors_tomorrow_night.png)
 
@@ -416,13 +416,13 @@ fc-cache -fv
 
    ![](README.assets/ubuntu_custom_font.png)
 
-2. To use the [Base16](https://github.com/chriskempson/base16) Tomorrow Night color scheme, install <https://github.com/aarowill/base16-gnome-terminal>:
+2. To use the custom `cdwilson-tomorrow-night` color scheme:
 
    ```sh
    sudo apt install gconf2 uuid-runtime
-   git clone https://github.com/aaron-williamson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
+   chezmoi cd
    # a new profile needs to be created in the terminal preferences UI before running the next command, otherwise it will appear to do nothing (it can be deleted afterwards)
-   ~/.config/base16-gnome-terminal/color-scripts/base16-tomorrow-night.sh
+   ./Ubuntu/color-scripts/cdwilson-tomorrow-night.sh
    ```
 
    ![](README.assets/ubuntu_terminal_custom_colors.png)

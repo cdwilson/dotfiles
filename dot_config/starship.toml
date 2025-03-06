@@ -7,11 +7,11 @@
 command_timeout = 10000
 
 format = """
-[](fg:bright-black)\
+[](fg:black)\
 $os\
 $sudo\
 $username\
-[](fg:bright-black bg:bright-yellow)\
+[](fg:black bg:bright-yellow)\
 $hostname\
 [](fg:bright-yellow bg:yellow)\
 $directory\
@@ -29,13 +29,13 @@ $python\
 $ruby\
 $rust\
 $package\
-[](fg:blue bg:black)\
+[](fg:blue bg:bright-black)\
 $docker_context\
-[](fg:black bg:bright-black)\
+[](fg:bright-black bg:black)\
 $battery\
 $time\
 $cmd_duration\
-[](fg:bright-black)\
+[](fg:black)\
 $line_break\
 $shlvl\
 $character\
@@ -71,7 +71,7 @@ threshold = 0
 
 [os]
 disabled = false
-style = 'fg:white bg:bright-black'
+style = 'fg:white bg:black'
 format = '[$symbol ]($style)'
 
 [os.symbols]
@@ -122,13 +122,13 @@ Windows = '󰍲'
 [sudo]
 disabled = false
 symbol = ''
-style = 'fg:purple bg:bright-black'
+style = 'fg:purple bg:black'
 format = '[$symbol ]($style)'
 
 [username]
 show_always = false
-style_user = 'fg:white bg:bright-black'
-style_root = 'fg:purple bg:bright-black'
+style_user = 'fg:white bg:black'
+style_root = 'fg:purple bg:black'
 format = '[($user )]($style)'
 
 # Hostname / SSH
@@ -228,7 +228,7 @@ format = '[$symbol( $version) ]($style)'
 
 [docker_context]
 symbol = ''
-style = 'fg:white bg:black'
+style = 'fg:white bg:bright-black'
 format = '[ $symbol( $context) ]($style)'
 
 # Battery
@@ -238,7 +238,7 @@ format = '[( $symbol$percentage)]($style)'
 
 [[battery.display]]
 threshold = 10
-style = 'fg:red bg:bright-black'
+style = 'fg:red bg:black'
 
 # Time
 
@@ -246,7 +246,7 @@ style = 'fg:red bg:bright-black'
 disabled = true
 time_format = '%I:%M %p'
 use_12hr = true
-style = 'fg:white bg:bright-black'
+style = 'fg:white bg:black'
 format = '[(  $time)]($style)'
 
 # Command Duration
@@ -254,5 +254,5 @@ format = '[(  $time)]($style)'
 [cmd_duration]
 disabled = false
 min_time = 0
-style = 'fg:white bg:bright-black'
+style = 'fg:white bg:black'
 format = '[( 󰔛 $duration)]($style)'

@@ -2,15 +2,14 @@
 #
 # SPDX-License-Identifier: MIT
 
-# theme = Hybrid
-theme = tinted-theming
+theme = cdwilson-tomorrow-night
 font-family = Monaspace Neon Frozen
 {{- if eq .chezmoi.os "darwin" }}
   font-size = 14
 {{- else if eq .chezmoi.os "linux" }}
   font-size = 11
 {{- end }}
-cursor-style = underline
+cursor-style = bar
 cursor-click-to-move = true
 adjust-cell-height = 20%
 clipboard-paste-protection = true

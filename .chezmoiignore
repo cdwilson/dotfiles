@@ -6,6 +6,7 @@ README.md
 README.assets
 LICENSES
 macOS
+Ubuntu
 .reuse
 REUSE.toml
 {{ if ne .email "christopher.david.wilson@gmail.com" }}

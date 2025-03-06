@@ -1,0 +1,67 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# --- Color palette ---
+
+# Base16 "tomorrow-night" colors from the Tinted Gallery
+# https://tinted-theming.github.io/tinted-gallery/
+# base00 = #1d1f21
+# base01 = #282a2e
+# base02 = #373b41
+# base03 = #969896
+# base04 = #b4b7b4
+# base05 = #c5c8c6
+# base06 = #e0e0e0
+# base07 = #ffffff
+# base08 = #cc6666
+# base09 = #de935f
+# base0A = #f0c674
+# base0B = #b5bd68
+# base0C = #8abeb7
+# base0D = #81a2be
+# base0E = #b294bb
+# base0F = #a3685a
+
+# Black
+palette = 0=#282a2e
+# Red
+palette = 1=#cc6666
+# Green
+palette = 2=#b5bd68
+# Yellow
+palette = 3=#f0c674
+# Blue
+palette = 4=#81a2be
+# Magenta (Purple)
+palette = 5=#b294bb
+# Cyan
+palette = 6=#8abeb7
+# White
+palette = 7=#c5c8c6
+
+# Bright Black
+palette = 8=#373b41
+# Bright Red
+palette = 9=#cc6666
+# Bright Green
+palette = 10=#b5bd68
+# Bright Yellow (Orange)
+palette = 11=#de935f
+# Bright Blue
+palette = 12=#81a2be
+# Bright Magenta (Purple)
+palette = 13=#b294bb
+# Bright Cyan
+palette = 14=#8abeb7
+# Bright White
+palette = 15=#e0e0e0
+
+# --- Foreground & background colors ---
+
+background = #1d1f21
+foreground = #c5c8c6
+cursor-color = #de935f
+cursor-text = #1d1f21
+selection-background = #373b41
+selection-foreground = #c5c8c6
