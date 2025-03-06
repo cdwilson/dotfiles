@@ -7,13 +7,13 @@
 command_timeout = 10000
 
 format = """
-[](fg:bright-green)\
+[](fg:bright-black)\
 $os\
 $sudo\
 $username\
-[](fg:bright-green bg:bright-red)\
+[](fg:bright-black bg:bright-yellow)\
 $hostname\
-[](fg:bright-red bg:yellow)\
+[](fg:bright-yellow bg:yellow)\
 $directory\
 [](fg:yellow bg:green)\
 $git_branch\
@@ -22,26 +22,24 @@ $git_state\
 $git_metrics\
 $git_status\
 [](fg:green bg:blue)\
-$python\
-$rust\
 $golang\
 $nodejs\
+$perl\
+$python\
+$ruby\
+$rust\
 $package\
-[](fg:blue bg:bright-yellow)\
+[](fg:blue bg:black)\
 $docker_context\
-[](fg:bright-yellow bg:bright-green)\
+[](fg:black bg:bright-black)\
 $battery\
+$time\
 $cmd_duration\
-[](fg:bright-green)\
+[](fg:bright-black)\
 $line_break\
 $shlvl\
 $character\
 """
-
-[fill]
-symbol = ' '
-style = 'color_base00_background'
-disabled = false
 
 # --- Left Prompt ---
 
@@ -50,19 +48,19 @@ disabled = false
 [character]
 disabled = false
 format = '[$symbol ]($style)'
-success_symbol = '[❯](green)'
-error_symbol = '[❯](red)'
-vimcmd_symbol = '[❮](green)'
-vimcmd_replace_one_symbol = '[❮](purple)'
-vimcmd_replace_symbol = '[❮](purple)'
-vimcmd_visual_symbol = '[❮](yellow)'
+success_symbol = '[❯](fg:green)'
+error_symbol = '[❯](fg:red)'
+vimcmd_symbol = '[❮](fg:green)'
+vimcmd_replace_one_symbol = '[❮](fg:purple)'
+vimcmd_replace_symbol = '[❮](fg:purple)'
+vimcmd_visual_symbol = '[❮](fg:yellow)'
 
 [line_break]
 disabled = false
 
 [shlvl]
 disabled = true  # Disabled because VS Code Terminal starts with a shlvl of 3
-style = 'fg:bright-blue'
+style = 'fg:white'
 format = '[$symbol]($style)'
 repeat = true
 symbol = '❯'
@@ -73,7 +71,7 @@ threshold = 0
 
 [os]
 disabled = false
-style = 'fg:bright-blue bg:bright-green'
+style = 'fg:white bg:bright-black'
 format = '[$symbol ]($style)'
 
 [os.symbols]
@@ -124,13 +122,13 @@ Windows = '󰍲'
 [sudo]
 disabled = false
 symbol = ''
-style = 'fg:purple bg:bright-green'
+style = 'fg:purple bg:bright-black'
 format = '[$symbol ]($style)'
 
 [username]
 show_always = false
-style_user = 'fg:bright-blue bg:bright-green'
-style_root = 'fg:purple bg:bright-green'
+style_user = 'fg:white bg:bright-black'
+style_root = 'fg:purple bg:bright-black'
 format = '[($user )]($style)'
 
 # Hostname / SSH
@@ -139,7 +137,7 @@ format = '[($user )]($style)'
 ssh_symbol = ' '
 disabled = false
 ssh_only = true
-style = 'fg:black bg:bright-red'
+style = 'fg:black bg:bright-yellow'
 format ='[ $ssh_symbol$hostname ]($style)'
 
 # Path
@@ -221,7 +219,7 @@ format = '[ $symbol( $version) ]($style)'
 # Package Version
 
 [package]
-disabled = true
+disabled = false
 symbol = '󰏗'
 style = 'fg:black bg:blue'
 format = '[$symbol( $version) ]($style)'
@@ -230,29 +228,31 @@ format = '[$symbol( $version) ]($style)'
 
 [docker_context]
 symbol = ''
-style = 'fg:white bg:bright-yellow'
+style = 'fg:white bg:black'
 format = '[ $symbol( $context) ]($style)'
 
-# Command Duration
-
-[cmd_duration]
-disabled = false
-min_time = 0
-style = 'fg:bright-blue bg:bright-green'
-format = '[( 󰔛 $duration)]($style)'
-
-# --- Right Prompt ---
+# Battery
 
 [battery]
 format = '[( $symbol$percentage)]($style)'
 
 [[battery.display]]
 threshold = 10
-style = 'fg:red bg:bright-green'
+style = 'fg:red bg:bright-black'
+
+# Time
 
 [time]
-disabled = false
+disabled = true
 time_format = '%I:%M %p'
 use_12hr = true
-style = 'fg:bright-blue bg:bright-green'
-format = '[ $time]($style)'
+style = 'fg:white bg:bright-black'
+format = '[(  $time)]($style)'
+
+# Command Duration
+
+[cmd_duration]
+disabled = false
+min_time = 0
+style = 'fg:white bg:bright-black'
+format = '[( 󰔛 $duration)]($style)'

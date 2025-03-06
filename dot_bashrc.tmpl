@@ -326,3 +326,12 @@ fi
 if [[ -r "${HOME}/.nrfutil/share/nrfutil-completion/scripts/bash/setup.bash" ]]; then
     . "${HOME}/.nrfutil/share/nrfutil-completion/scripts/bash/setup.bash"
 fi
+
+# ------------------------------------------------------------------------------
+# tinty Bash completion
+# ------------------------------------------------------------------------------
+
+if executable_exists tinty; then
+    tinty_generate_completion_bash=$(tinty generate-completion bash)
+    eval "${tinty_generate_completion_bash}"
+fi
