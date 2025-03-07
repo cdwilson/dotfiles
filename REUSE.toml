@@ -14,7 +14,7 @@ SPDX-FileCopyrightText = "2022 Chris Wilson <christopher.david.wilson@gmail.com>
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = ["README.md", "README.assets/**"]
+path = ["README.md", "images/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 Chris Wilson <christopher.david.wilson@gmail.com>"
 SPDX-License-Identifier = "CC-BY-SA-4.0"

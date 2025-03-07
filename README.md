@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ./images
+---
+
 # :house: dotfiles
 
 My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io/).
@@ -6,7 +10,7 @@ My dotfiles in `$HOME` automatically managed by [chezmoi](https://www.chezmoi.io
 
 ### :apple: macOS Setup
 
-![](README.assets/macos_fastfetch.png)
+![](images/macos_fastfetch.png)
 
 #### Command Line Tools for Xcode Setup
 
@@ -42,7 +46,7 @@ brew install --cask 1password
 
 After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
 
-![](README.assets/1password_developer_settings_mac.png)
+![](images/1password_developer_settings_mac.png)
 
 #### 1Password CLI Setup
 
@@ -73,7 +77,7 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
 
 1. Change the Command preference to the full path of your shell:
 
-   ![](README.assets/macos_terminal_shell_command.png)
+   ![](images/macos_terminal_shell_command.png)
 
 3. Add your shell to `/etc/shells`:
 
@@ -156,11 +160,11 @@ brew install --cask ghostty
 
 2. Install Homebrew Bash (ARM) profile from [`macOS/iTerm2/profiles/Homebrew Bash (ARM).json`](macOS/iTerm2/profiles/Homebrew%20Bash%20(ARM).json):
 
-   ![](README.assets/iterm2_profile_homebrew_bash_arm.png)
+   ![](images/iterm2_profile_homebrew_bash_arm.png)
 
 3. Install the `cdwilson-tomorrow-night` color profile from [`macOS/iTerm2/color_presets/cdwilson-tomorrow-night.itermcolors`](macOS/iTerm2/color_presets/cdwilson-tomorrow-night.itermcolors):
 
-   ![](README.assets/iterm2_colors_tomorrow_night.png)
+   ![](images/iterm2_colors_tomorrow_night.png)
 
 #### `uv` Setup
 
@@ -257,7 +261,7 @@ brew install fastfetch
 
 ### :penguin: Ubuntu Linux Setup
 
-![](README.assets/ubuntu_fastfetch.png)
+![](images/ubuntu_fastfetch.png)
 
 #### `apt` Setup
 
@@ -334,7 +338,7 @@ sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
 After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
 
-![](README.assets/1password_developer_settings_ubuntu.png)
+![](images/1password_developer_settings_ubuntu.png)
 
 #### 1Password CLI Setup
 
@@ -414,7 +418,7 @@ fc-cache -fv
 
 1. To use the [Monaspace](https://github.com/i-tu/Hasklig) font:
 
-   ![](README.assets/ubuntu_custom_font.png)
+   ![](images/ubuntu_custom_font.png)
 
 2. To use the custom `cdwilson-tomorrow-night` color scheme:
 
@@ -425,11 +429,11 @@ fc-cache -fv
    ./Ubuntu/color-scripts/cdwilson-tomorrow-night.sh
    ```
 
-   ![](README.assets/ubuntu_terminal_custom_colors.png)
+   ![](images/ubuntu_terminal_custom_colors.png)
 
 3. Make sure the "Run command as a login shell" is checked to ensure that `.bash_profile` is sourced:
 
-   ![](README.assets/ubuntu_terminal_login_shell.png)
+   ![](images/ubuntu_terminal_login_shell.png)
 
 #### Ghostty Setup
 
