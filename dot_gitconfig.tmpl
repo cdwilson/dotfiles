@@ -110,6 +110,8 @@
 [difftool "kicad-ksdiff"]
     cmd = kicad-ksdiff \"$LOCAL\" \"$REMOTE\"
 {{- end }}
+[difftool "sqldiff"]
+    cmd = sqldiff \"$LOCAL\" \"$REMOTE\"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
