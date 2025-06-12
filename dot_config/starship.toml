@@ -28,9 +28,8 @@ $perl\
 $python\
 $ruby\
 $rust\
-$package\
 [](fg:blue bg:bright-black)\
-$docker_context\
+$package\
 [](fg:bright-black bg:black)\
 $battery\
 $time\
@@ -221,8 +220,8 @@ format = '[ $symbol( $version) ]($style)'
 [package]
 disabled = false
 symbol = '󰏗'
-style = 'fg:black bg:blue'
-format = '[$symbol( $version) ]($style)'
+style = 'fg:white bg:bright-black'
+format = '[ $symbol( $version) ]($style)'
 
 # Docker Context
 
