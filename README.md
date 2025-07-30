@@ -423,7 +423,7 @@ fc-cache -fv
 2. To use the custom `cdwilson-tomorrow-night` color scheme:
 
    ```sh
-   sudo apt install gconf2 uuid-runtime
+   sudo apt install uuid-runtime
    chezmoi cd
    # a new profile needs to be created in the terminal preferences UI before running the next command, otherwise it will appear to do nothing (it can be deleted afterwards)
    ./Ubuntu/color-scripts/cdwilson-tomorrow-night.sh
