@@ -293,6 +293,14 @@ fi
 if executable_exists direnv; then
     direnv_hook_bash=$(direnv hook bash)
     eval "${direnv_hook_bash}"
+    # Workaround to make direnv work with VS Code's integrated terminal, see:
+    # https://github.com/direnv/direnv-vscode/issues/561#issuecomment-3053744254
+    # To print $DIRENV_DIFF for debugging:
+    #   brew install coreutils qpdf jq
+    #   echo $DIRENV_DIFF | basenc --base64url --decode | zlib-flate -uncompress | jq  .
+    if [[ "$TERM_PROGRAM" == "vscode" ]] && [[ -v DIRENV_DIFF ]]; then
+        cd .. && eval "$PROMPT_COMMAND" && cd ~- && eval "$PROMPT_COMMAND"
+    fi
 fi
 
 # ------------------------------------------------------------------------------
