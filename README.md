@@ -135,7 +135,7 @@ brew install --cask font-symbols-only-nerd-font
 > [!NOTE]
 > Although Monaspace added nerd fonts in the [`v1.200`](https://github.com/githubnext/monaspace/releases/tag/v1.200) release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
 >
-> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons. Terminals that do not provide a fallback font configuration option (e.g. macOS Terminal.app & GNOME Terminal) are configured to use a simplified prompt which does not use Nerd Fonts.
+> To avoid these issues, the `Monaspace Neon` font is used (instead of `Monaspace Neon NF` which includes nerd fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the nerd font icons. Terminals that do not provide a fallback font configuration option (e.g. macOS Terminal.app & GNOME Terminal) are configured to use a simplified prompt which does not use nerd fonts.
 
 #### Ghostty Setup
 
@@ -371,13 +371,11 @@ To install the [Monaspace](https://monaspace.githubnext.com/) font:
 
 ```sh
 cd ~/Downloads
-wget https://github.com/githubnext/monaspace/releases/download/v1.200/monaspace-v1.200.zip
+wget https://github.com/githubnext/monaspace/releases/download/v1.300/monaspace-static-v1.300.zip
 mkdir -p ~/.local/share/fonts
-unzip monaspace-v1.200.zip
-cd monaspace-v1.200/
-bash util/install_linux.sh
-cd -
-rm -rf monaspace-v1.200/
+rm -rf ~/.local/share/fonts/Monaspace*
+mkdir -p ~/.local/share/fonts/Monaspace
+unzip monaspace-static-v1.300.zip -d ~/.local/share/fonts/Monaspace/
 fc-cache -fv
 ```
 
@@ -385,20 +383,22 @@ To install the `Symbols Nerd Font` font from [Nerd Fonts](https://www.nerdfonts.
 
 ```sh
 cd ~/Downloads
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/NerdFontsSymbolsOnly.zip
 mkdir -p ~/.local/share/fonts
-unzip NerdFontsSymbolsOnly.zip -d ~/.local/share/fonts/
+rm -rf ~/.local/share/fonts/SymbolsNerdFont*
+mkdir -p ~/.local/share/fonts/SymbolsNerdFont
+unzip NerdFontsSymbolsOnly.zip -d ~/.local/share/fonts/SymbolsNerdFont/
 fc-cache -fv
 ```
 
 > [!NOTE]
 > Although Monaspace added nerd fonts in the [`v1.200`](https://github.com/githubnext/monaspace/releases/tag/v1.200) release, it does not contain some of the symbols that the `font-symbols-only-nerd-font` font does. In addition, the nerd fonts bundled with with Monaspace are scaled so they fit within the monospaced "box", resulting in smaller icons.
 >
-> To avoid these issues, the `Monaspace Neon Frozen` is used (which does not contain any Nerd Fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the Nerd Font icons. Terminals that do not provide a fallback font configuration option (e.g. macOS Terminal.app & GNOME Terminal) are configured to use a simplified prompt which does not use Nerd Fonts.
+> To avoid these issues, the `Monaspace Neon` font is used (instead of `Monaspace Neon NF` which includes nerd fonts) and `Symbols Nerd Font` is configured as a fallback font which provides the nerd font icons. Terminals that do not provide a fallback font configuration option (e.g. macOS Terminal.app & GNOME Terminal) are configured to use a simplified prompt which does not use nerd fonts.
 
 #### GNOME Terminal Setup
 
-1. To use the [Monaspace](https://github.com/i-tu/Hasklig) font:
+1. To use the Monaspace font:
 
    ![](images/ubuntu_custom_font.png)
 

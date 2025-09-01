@@ -243,14 +243,16 @@
 	</data>
 	<key>CursorType</key>
 	<integer>2</integer>
+	<key>DisableANSIColor</key>
+	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
 	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
-	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QG01v
-	bmFzcGFjZU5lb25Gcm96ZW4tUmVndWxhctIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNW
-	TlNGb250ohkbWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlLK3wsvS1QAAAAAA
-	AAEBAAAAAAAAABwAAAAAAAAAAAAAAAAAAADe
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QFU1v
+	bmFzcGFjZU5lb24tUmVndWxhctIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNWTlNGb250
+	ohkbWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlKyxvMXMzwAAAAAAAAEBAAAA
+	AAAAABwAAAAAAAAAAAAAAAAAAADY
 	</data>
 	<key>FontAntialias</key>
 	<true/>
@@ -315,6 +317,10 @@
 	cqIWGFhOU09iamVjdAgRGiQpMjdJTFFTV11kand+qKqssbzFzdAAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>UseBoldFonts</key>
+	<true/>
+	<key>UseBrightBold</key>
+	<false/>
 	<key>VisualBell</key>
 	<false/>
 	<key>WindowTitle</key>
