@@ -148,24 +148,6 @@ brew install --cask ghostty
 > [!TIP]
 > To [configure Ghostty](https://starship.rs/config/#prompt), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl).
 
-#### iTerm2 Setup
-
-[iTerm2](https://iterm2.com/) is a replacement for Terminal and the successor to iTerm.
-
-1. Install iTerm2 via Homebrew:
-
-   ```sh
-   brew install --cask iterm2
-   ```
-
-2. Install Homebrew Bash (ARM) profile from [`macOS/iTerm2/profiles/Homebrew Bash (ARM).json`](macOS/iTerm2/profiles/Homebrew%20Bash%20(ARM).json):
-
-   ![](images/iterm2_profile_homebrew_bash_arm.png)
-
-3. Install the `cdwilson-tomorrow-night` color profile from [`macOS/iTerm2/color_presets/cdwilson-tomorrow-night.itermcolors`](macOS/iTerm2/color_presets/cdwilson-tomorrow-night.itermcolors):
-
-   ![](images/iterm2_colors_tomorrow_night.png)
-
 #### `uv` Setup
 
 [uv](https://github.com/astral-sh/uv) is an extremely fast Python package and project manager, written in Rust.
