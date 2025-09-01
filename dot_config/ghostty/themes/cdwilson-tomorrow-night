@@ -24,38 +24,38 @@
 # base0F = #a3685a
 
 # Black
-palette = 0=#282a2e
+palette = 0 = #282a2e
 # Red
-palette = 1=#cc6666
+palette = 1 = #cc6666
 # Green
-palette = 2=#b5bd68
+palette = 2 = #b5bd68
 # Yellow
-palette = 3=#f0c674
+palette = 3 = #f0c674
 # Blue
-palette = 4=#81a2be
+palette = 4 = #81a2be
 # Magenta (Purple)
-palette = 5=#b294bb
+palette = 5 = #b294bb
 # Cyan
-palette = 6=#8abeb7
+palette = 6 = #8abeb7
 # White
-palette = 7=#c5c8c6
+palette = 7 = #c5c8c6
 
 # Bright Black
-palette = 8=#373b41
+palette = 8 = #373b41
 # Bright Red
-palette = 9=#cc6666
+palette = 9 = #cc6666
 # Bright Green
-palette = 10=#b5bd68
+palette = 10 = #b5bd68
 # Bright Yellow (Orange)
-palette = 11=#de935f
+palette = 11 = #de935f
 # Bright Blue
-palette = 12=#81a2be
+palette = 12 = #81a2be
 # Bright Magenta (Purple)
-palette = 13=#b294bb
+palette = 13 = #b294bb
 # Bright Cyan
-palette = 14=#8abeb7
+palette = 14 = #8abeb7
 # Bright White
-palette = 15=#e0e0e0
+palette = 15 = #e0e0e0
 
 # --- Foreground & background colors ---
 
