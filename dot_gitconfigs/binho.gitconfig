@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+[user]
+    email = chris@binho.io
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC7XcCcOqlMh/GTJ0aJFt5wKPWH/Fb6BmISf2IcRE+8f
