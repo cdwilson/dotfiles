@@ -106,7 +106,7 @@ Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io
 > Make sure to change `cdwilson` to your GitHub username!
 
 ```sh
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply cdwilson
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply cdwilson
 ```
 
 #### Starship Setup
@@ -349,7 +349,7 @@ Install the dotfiles from this repository using [chezmoi](https://www.chezmoi.io
 > Make sure to change `cdwilson` to your GitHub username!
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply cdwilson -b $HOME/.local/bin
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply cdwilson
 ```
 
 #### Starship Setup
