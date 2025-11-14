@@ -264,7 +264,17 @@ fi
 export GLASGOW_TOOLCHAIN="system,builtin"
 
 # ------------------------------------------------------------------------------
-# STM32Cube
+# STM32CubeProgrammer
 # ------------------------------------------------------------------------------
 
+{{- if eq .chezmoi.os "darwin" }}
+if [ -d "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin" ] ; then
+    export PATH="/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin:${PATH}"
+fi
 export STM32_PRG_PATH="/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin"
+{{- else if eq .chezmoi.os "linux" }}
+if [ -d "/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/" ] ; then
+    export PATH="/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/:${PATH}"
+fi
+export STM32_PRG_PATH="/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/"
+{{- end }}
