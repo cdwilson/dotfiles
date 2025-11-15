@@ -273,8 +273,8 @@ if [ -d "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32Cub
 fi
 export STM32_PRG_PATH="/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin"
 {{- else if eq .chezmoi.os "linux" }}
-if [ -d "/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/" ] ; then
-    export PATH="/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/:${PATH}"
+if [ -d "/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin" ] ; then
+    export PATH="/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:${PATH}"
 fi
-export STM32_PRG_PATH="/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/"
+export STM32_PRG_PATH="/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin"
 {{- end }}
