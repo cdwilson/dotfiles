@@ -264,8 +264,12 @@ fi
 export GLASGOW_TOOLCHAIN="system,builtin"
 
 # ------------------------------------------------------------------------------
-# STM32CubeProgrammer
+# STM32Cube
 # ------------------------------------------------------------------------------
+
+if [ -d "${HOME}/.local/opt/stm32cube/bin" ] ; then
+    export PATH="${HOME}/.local/opt/stm32cube/bin:$PATH"
+fi
 
 {{- if eq .chezmoi.os "darwin" }}
 if [ -d "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin" ] ; then
