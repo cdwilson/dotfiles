@@ -15,6 +15,12 @@ adjust-cell-height = 20%
 clipboard-paste-protection = true
 window-width = 80
 window-height = 24
-{{- if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "darwin" }}
+  {{- if eq .chezmoi.arch "arm64" }}
+command = /opt/homebrew/bin/bash --login
+  {{- else }}
+command = /usr/local/bin/bash --login
+  {{- end }}
+{{- else if eq .chezmoi.os "linux" }}
 command = /bin/bash --login
 {{- end }}
