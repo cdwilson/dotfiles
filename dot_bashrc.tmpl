@@ -51,21 +51,9 @@ export HISTSIZE=10000
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# immediately add commands to history (don't wait for the end of each session)
-# export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
-
 # ------------------------------------------------------------------------------
 # Editor
 # ------------------------------------------------------------------------------
-
-# TextMate
-# export EDITOR='/usr/local/bin/mate -w'
-
-# Sublime
-# export EDITOR='subl -w'
-
-# Atom
-# export EDITOR='atom --wait'
 
 # Visual Studio Code
 export EDITOR='code --wait'
@@ -144,8 +132,6 @@ export COLOR_BOLD_WHITE="${ANSI_CSI}${SGR_BOLD};${SGR_FG_WHITE}m"
 export CLICOLOR=yes
 export GREP_OPTIONS='--color=auto'
 export LS_OPTIONS='--color=auto'
-# http://www.geekology.co.za/blog/2009/04/enabling-bash-terminal-directory-file-color-highlighting-mac-os-x/
-# export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # ------------------------------------------------------------------------------
 # Aliases
@@ -174,13 +160,6 @@ alias ppath="echo \$PATH | tr ':' '\n'"
 
 # https://support.typora.io/Use-Typora-From-Shell-or-cmd/
 alias typora="open -a typora"
-
-# https://jira.atlassian.com/browse/SRCTREE-7794
-# https://jira.atlassian.com/browse/SRCTREE-3172
-# alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
-
-# alias for x86_64 homebrew
-alias brew-x86_64="arch -x86_64 /usr/local/homebrew/bin/brew"
 
 # ------------------------------------------------------------------------------
 # Bash Completion
