@@ -22,9 +22,9 @@
     excludesfile = ~/.gitignore
     quotepath = false
 {{- if eq .chezmoi.os "linux" }}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
     sshCommand = ssh.exe
-{{-   end }}
+  {{- end }}
 {{- end }}
 [color]
     diff = auto

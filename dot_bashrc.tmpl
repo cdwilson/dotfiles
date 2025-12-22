@@ -164,12 +164,12 @@ alias la="ls -a" # list all, includes dot files
 alias ll="ls -l" # long list, excludes dot files
 alias lla="ls -la" # long list all, includes dot files
 {{- if eq .chezmoi.os "linux" }}
-{{-   if eq .chezmoi.osRelease.id "ubuntu" }}
+  {{- if eq .chezmoi.osRelease.id "ubuntu" }}
 alias cat="batcat"
-{{   end }}
-{{ else }}
+  {{- end }}
+{{- else }}
 alias cat="bat"
-{{ end }}
+{{- end }}
 alias ppath="echo \$PATH | tr ':' '\n'"
 
 # https://support.typora.io/Use-Typora-From-Shell-or-cmd/
@@ -218,6 +218,7 @@ fi
 # ------------------------------------------------------------------------------
 # 1Password CLI
 # ------------------------------------------------------------------------------
+
 if executable_exists op; then
     op_completions=$(op completion bash)
     eval "${op_completions}"
@@ -226,6 +227,7 @@ fi
 # ------------------------------------------------------------------------------
 # rbenv
 # ------------------------------------------------------------------------------
+
 if [[ -n "${RBENV_ROOT}" ]] && [[ -d "${RBENV_ROOT}" ]]; then
     # Don't use `rbenv init -` directly because it sets the PATH. Instead,
     # remove any lines that set the PATH and then eval.
@@ -263,8 +265,7 @@ if executable_exists rustup; then
     eval "${rustup_completions_bash}"
 fi
 
-{{- if eq .chezmoi.os "linux" }}
-
+{{ if eq .chezmoi.os "linux" -}}
 # ------------------------------------------------------------------------------
 # Initialize keychain
 # ------------------------------------------------------------------------------
@@ -273,7 +274,8 @@ fi
 #     keychain_init_bash=$(keychain --eval id_rsa)
 #     eval "${keychain_init_bash}"
 # fi
-{{- end }}
+
+{{ end -}}
 
 # ------------------------------------------------------------------------------
 # Initialize Starship prompt

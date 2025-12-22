@@ -4,9 +4,9 @@
 
 {{ $email := "" -}}
 {{- if (hasKey . "email") -}}
-{{-   $email = .email -}}
+  {{- $email = .email -}}
 {{- else -}}
-{{-   $email = promptString "email" -}}
+  {{- $email = promptString "email" -}}
 {{- end -}}
 
 [data]

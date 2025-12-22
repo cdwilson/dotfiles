@@ -9,11 +9,11 @@ macOS
 Ubuntu
 .reuse
 REUSE.toml
-{{ if ne .email "christopher.david.wilson@gmail.com" }}
+{{- if ne .email "christopher.david.wilson@gmail.com" }}
 .gitconfigs/binho.gitconfig
 .gitconfigs/cgnd.gitconfig
 .gitconfigs/flyingcampdesign.gitconfig
-{{ end }}
-{{ if ne .chezmoi.os "darwin" -}}
+{{- end }}
+{{- if ne .chezmoi.os "darwin" }}
 Library
-{{ end -}}
+{{- end }}
