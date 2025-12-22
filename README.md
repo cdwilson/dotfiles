@@ -252,7 +252,7 @@ Update package information from the package repository and install dependencies:
 ```sh
 sudo apt update
 sudo apt upgrade
-sudo apt install curl
+sudo apt install bash bash-completion curl
 sudo locale-gen en_US.UTF-8
 
 # Optional: install a GUI desktop on a server image

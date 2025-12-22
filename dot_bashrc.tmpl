@@ -183,9 +183,10 @@ alias typora="open -a typora"
 alias brew-x86_64="arch -x86_64 /usr/local/homebrew/bin/brew"
 
 # ------------------------------------------------------------------------------
-# Homebrew Bash Completion
+# Bash Completion
 # ------------------------------------------------------------------------------
 
+{{if eq .chezmoi.os "darwin" -}}
 if [[ -n "${HOMEBREW_PREFIX}" ]] && [[ -d "${HOMEBREW_PREFIX}" ]]; then
     # bash version check code copied from `starship init bash`
     major="${BASH_VERSINFO[0]}"
@@ -214,6 +215,9 @@ if [[ -n "${HOMEBREW_PREFIX}" ]] && [[ -d "${HOMEBREW_PREFIX}" ]]; then
         echo
     fi
 fi
+{{- else if eq .chezmoi.os "linux" -}}
+    source /etc/bash_completion
+{{- end }}
 
 # ------------------------------------------------------------------------------
 # 1Password CLI
