@@ -17,3 +17,12 @@ REUSE.toml
 {{- if ne .chezmoi.os "darwin" }}
 Library
 {{- end }}
+{{- /* Parallels-on-arm64-Linux Ghostty workaround: the host's GPU only exposes
+       OpenGL 4.1, but Ghostty needs 4.3. The systemd drop-in below forces
+       Mesa software rendering for the GUI launch path. The matching CLI
+       shell function lives in dot_bashrc.tmpl, gated by the same template
+       check. Skip the drop-in on every host that isn't ARM64 Linux running
+       under Parallels. */ -}}
+{{- if not (and (eq .chezmoi.os "linux") (eq .chezmoi.arch "arm64") (lookPath "systemd-detect-virt") (eq (output "sh" "-c" "systemd-detect-virt || true" | trim) "parallels")) }}
+.config/systemd/user/app-com.mitchellh.ghostty.service.d
+{{- end }}

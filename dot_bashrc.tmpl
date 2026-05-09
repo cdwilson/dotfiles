@@ -161,6 +161,18 @@ alias ppath="echo \$PATH | tr ':' '\n'"
 # https://support.typora.io/Use-Typora-From-Shell-or-cmd/
 alias typora="open -a typora"
 
+{{- /* Parallels' virtual GPU on ARM64 Ubuntu only exposes OpenGL 4.1, but
+       recent Ghostty builds need 4.3. Force the Mesa software renderer when
+       launching `ghostty` from a shell. The GUI launch path is handled by a
+       separate systemd drop-in (see .chezmoiignore). */ -}}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "arm64") (lookPath "systemd-detect-virt") }}
+{{-   if eq (output "sh" "-c" "systemd-detect-virt || true" | trim) "parallels" }}
+
+# Force software OpenGL for Ghostty under Parallels (insufficient GL version).
+ghostty() { LIBGL_ALWAYS_SOFTWARE=true command ghostty "$@"; }
+{{-   end }}
+{{- end }}
+
 # ------------------------------------------------------------------------------
 # Bash Completion
 # ------------------------------------------------------------------------------
