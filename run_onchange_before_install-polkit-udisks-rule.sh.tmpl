@@ -1,0 +1,22 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+set -euo pipefail
+
+RULE_FILE=/etc/polkit-1/rules.d/10-udisks-sdcard.rules
+
+TMP=$(mktemp)
+cat > "$TMP" << 'EOF'
+polkit.addRule(function(action, subject) {
+    if (action.id.indexOf("org.freedesktop.udisks2.") == 0 &&
+        subject.isInGroup("plugdev") && subject.active) {
+        return polkit.Result.YES;
+    }
+});
+EOF
+
+if ! sudo cmp -s "$TMP" "$RULE_FILE" 2>/dev/null; then
+    sudo install -m 644 -o root -g root "$TMP" "$RULE_FILE"
+    sudo systemctl restart polkit
+fi
+rm -f "$TMP"
+{{- end -}}
