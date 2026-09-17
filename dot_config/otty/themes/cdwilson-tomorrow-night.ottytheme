@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: Chris Wilson <christopher.david.wilson@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+[meta]
+name = "cdwilson-tomorrow-night"
+mode = "dark"
+description = "Imported from Ghostty on 2026-09-17"
+
+[terminal]
+foreground = "#C5C8C6"
+background = "#1D1F21"
+cursor = "#DE935F"
+cursor-text = "#1D1F21"
+selection-foreground = "#C5C8C6"
+selection-background = "#373B41"
+palette = [
+    "#282A2E", "#CC6666", "#B5BD68", "#F0C674",
+    "#81A2BE", "#B294BB", "#8ABEB7", "#C5C8C6",
+    "#373B41", "#CC6666", "#B5BD68", "#DE935F",
+    "#81A2BE", "#B294BB", "#8ABEB7", "#E0E0E0",
+]
+
+[token]
+foreground = "#C5C8C6"
+accent = "#81A2BE"
+
+[panel]
+surface = "#27292B"
+border = "#3B3D3F"
