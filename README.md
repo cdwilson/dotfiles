@@ -334,6 +334,27 @@ brew install fastfetch
 sudo port install fastfetch
 ```
 
+#### `gh` Setup
+
+[GitHub CLI](https://cli.github.com/) brings pull requests, issues, and other GitHub concepts to the terminal.
+
+```sh
+# Homebrew
+brew install gh
+
+# MacPorts
+sudo port install gh
+```
+
+Then authenticate with GitHub:
+
+```sh
+gh auth login
+```
+
+> [!TIP]
+> To [configure gh](https://cli.github.com/manual/gh_config), add your changes to [`dot_config/gh/config.yml`](dot_config/gh/config.yml).
+
 ------
 
 ### :penguin: Ubuntu Linux Setup
@@ -653,6 +674,30 @@ sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 sudo apt update
 sudo apt install fastfetch
 ```
+
+#### `gh` Setup
+
+[GitHub CLI](https://cli.github.com/) brings pull requests, issues, and other GitHub concepts to the terminal.
+
+Install it from the [official apt repository](https://github.com/cli/cli/blob/trunk/docs/install_linux.md), since the `gh` package in the Ubuntu archive lags behind upstream releases:
+
+```sh
+sudo mkdir -p -m 755 /etc/apt/keyrings
+wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh
+```
+
+Then authenticate with GitHub:
+
+```sh
+gh auth login
+```
+
+> [!TIP]
+> To [configure gh](https://cli.github.com/manual/gh_config), add your changes to [`dot_config/gh/config.yml`](dot_config/gh/config.yml).
 
 ------
 
