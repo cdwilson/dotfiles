@@ -20,7 +20,12 @@ Once you have Xcode installed, open a terminal and run the following to install 
 xcode-select --install
 ```
 
-#### Homebrew Setup
+#### Package Manager Setup
+
+> [!IMPORTANT]
+> Homebrew 7.0 dropped support for Intel-based Macs. Use [Homebrew](https://brew.sh/) on Apple Silicon Macs and [MacPorts](https://www.macports.org/) on Intel Macs. Where the instructions below differ, both commands are shown; run the one for your package manager.
+
+##### Homebrew Setup (Apple Silicon)
 
 [Homebrew](https://brew.sh/) is a package manager for macOS that can be used to install packages that aren't included by Apple.
 
@@ -28,21 +33,39 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-#### Git Setup
+##### MacPorts Setup (Intel)
 
-Install the latest version of Git from Homebrew:
+[MacPorts](https://www.macports.org/) is a package manager for macOS that still supports Intel-based Macs. Download and run the macOS package installer for your macOS version from the [MacPorts installation page](https://www.macports.org/install.php), then update the ports tree:
 
 ```sh
-brew install git gpg
+sudo port selfupdate
+```
+
+> [!NOTE]
+> The MacPorts installer adds `/opt/local/bin` to `PATH` in `~/.zprofile`, which only affects zsh. [`dot_profile.tmpl`](dot_profile.tmpl) adds MacPorts to `PATH` for bash, so that line is redundant but harmless.
+
+#### Git Setup
+
+Install the latest versions of Git, Git LFS, and GnuPG:
+
+```sh
+# Homebrew
+brew install git git-lfs gpg
+
+# MacPorts
+sudo port install git git-lfs gnupg2
 ```
 
 #### 1Password Setup
 
-Install 1Password password manager from Homebrew:
+Install the 1Password password manager:
 
 ```sh
+# Homebrew
 brew install --cask 1password
 ```
+
+There is no MacPorts port for the 1Password app. On Intel Macs, download it from [1password.com](https://1password.com/downloads/mac/).
 
 After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" and make sure the SSH agent and CLI are enabled:
 
@@ -53,22 +76,37 @@ After installing, go to "Settings…" → "Developer" → "Set Up SSH Agent…" 
 With [1Password CLI](https://developer.1password.com/docs/cli), you can automate administrative tasks and load secrets straight from your command line and in your scripts.
 
 ```sh
+# Homebrew
 brew install --cask 1password/tap/1password-cli
+
+# MacPorts
+sudo port install 1password-cli
 ```
 
 #### Bash Setup
 
-The older bash 3.2 provided by Apple with macOS is not compatible with modern bash completion (e.g. homebrew's [bash-completion@2](https://formulae.brew.sh/formula/bash-completion@2) requires bash 4.2+ and [Click](https://click.palletsprojects.com/en/8.0.x/shell-completion/) requires bash 4.4+).  Instead, use a more recent bash + bash completion from home-brew.
+The older bash 3.2 provided by Apple with macOS is not compatible with modern bash completion (e.g. [bash-completion 2.x](https://github.com/scop/bash-completion) requires bash 4.2+ and [Click](https://click.palletsprojects.com/en/8.0.x/shell-completion/) requires bash 4.4+).  Instead, use a more recent bash + bash completion from your package manager:
 
 ```sh
+# Homebrew
 brew install bash bash-completion@2
+
+# MacPorts
+sudo port install bash bash-completion
 ```
+
+Both install the completion loader at `<prefix>/etc/profile.d/bash_completion.sh`, which [`dot_bashrc.tmpl`](dot_bashrc.tmpl) sources automatically.
 
 In addition, optionally install the [bash language server](https://github.com/bash-lsp/bash-language-server/blob/master/bash-lsp) to enable editor extensions like [Bash IDE](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode) for VSCode.
 
 ```sh
 # Optional
+
+# Homebrew
 brew install bash-language-server
+
+# MacPorts
+sudo port install bash-language-server
 ```
 
 #### Terminal.app Setup
@@ -79,7 +117,7 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
 
    ![](images/macos_terminal_shell_command.png)
 
-3. Add your shell to `/etc/shells`:
+2. Add your shell to `/etc/shells`:
 
    ```
    # List of acceptable shells for chpass(1).
@@ -93,7 +131,8 @@ On macOS, if you're using a custom shell installed via Homebrew or MacPorts, rem
    /bin/sh
    /bin/tcsh
    /bin/zsh
-   /opt/homebrew/bin/bash <-- Add your shell here
+   /opt/homebrew/bin/bash <-- Homebrew bash (Apple Silicon)
+   /opt/local/bin/bash    <-- MacPorts bash (Intel)
    ```
 
 3. To use the Terminal.app profile, just double click the [`cdwilson-tomorrow-night.terminal`](macOS/Terminal/cdwilson-tomorrow-night.terminal) file in Finder.
@@ -116,8 +155,11 @@ sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init cdwilson --apply --ssh
 Install starship:
 
 ```sh
-# via Homebrew for Mac
+# Homebrew
 brew install starship
+
+# MacPorts
+sudo port install starship
 ```
 
 > [!TIP]
@@ -125,11 +167,26 @@ brew install starship
 
 #### Font Setup
 
-To install the [Monaspace](https://monaspace.githubnext.com/) font:
+To install the [Monaspace](https://monaspace.githubnext.com/) font and the `Symbols Nerd Font` font from [Nerd Fonts](https://www.nerdfonts.com/#home):
 
 ```sh
+# Homebrew
 brew install --cask font-monaspace
 brew install --cask font-symbols-only-nerd-font
+```
+
+There are no MacPorts equivalents (the `ttf-nerd-fonts-symbols` port installs into `/opt/local/share/fonts`, which macOS does not scan), so on Intel Macs download the fonts and copy them into `~/Library/Fonts`:
+
+```sh
+# MacPorts (manual install)
+cd ~/Downloads
+curl -sSLO https://github.com/githubnext/monaspace/releases/download/v1.400/monaspace-static-v1.400.zip
+unzip -o monaspace-static-v1.400.zip -d monaspace
+find monaspace -name '*.otf' -exec cp {} ~/Library/Fonts/ \;
+
+curl -sSLO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/NerdFontsSymbolsOnly.zip
+unzip -o NerdFontsSymbolsOnly.zip -d SymbolsNerdFont
+cp SymbolsNerdFont/*.ttf ~/Library/Fonts/
 ```
 
 > [!NOTE]
@@ -142,11 +199,14 @@ brew install --cask font-symbols-only-nerd-font
 [Ghostty](https://ghostty.org/) is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 
 ```sh
+# Homebrew
 brew install --cask ghostty
 ```
 
+There is no MacPorts port for Ghostty. On Intel Macs, download the universal DMG from [ghostty.org](https://ghostty.org/download).
+
 > [!TIP]
-> To [configure Ghostty](https://starship.rs/config/#prompt), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl).
+> To [configure Ghostty](https://ghostty.org/docs/config), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl). On macOS, the template launches the MacPorts bash when `/opt/local/bin/bash` exists and the Homebrew bash otherwise.
 
 #### `uv` Setup
 
@@ -161,7 +221,11 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 [direnv](https://direnv.net/) lets you easily load and unload environment variables depending on the current directory.
 
 ```sh
+# Homebrew
 brew install direnv
+
+# MacPorts
+sudo port install direnv
 ```
 
 #### `rbenv` Setup
@@ -171,8 +235,19 @@ brew install direnv
 1. Install dependencies for building Ruby:
 
    ```sh
+   # Homebrew
    brew install openssl readline
+
+   # MacPorts
+   sudo port install openssl readline libyaml
    ```
+
+   > [!NOTE]
+   > [ruby-build](https://github.com/rbenv/ruby-build) only auto-detects Homebrew. With MacPorts, point Ruby's configure script at `/opt/local` when installing a Ruby version:
+   >
+   > ```sh
+   > RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/local --with-libyaml-dir=/opt/local" rbenv install <version>
+   > ```
 
 2. Install `rbenv` using the [Basic GitHub Checkout](https://github.com/rbenv/rbenv#basic-github-checkout) instructions (I'm not using [rbenv-installer](https://github.com/rbenv/rbenv-installer) because I don't want rbenv installed via Homebrew on macOS):
 
@@ -204,7 +279,11 @@ brew install direnv
 [eza](https://eza.rocks) is a modern, maintained replacement for ls.
 
 ```sh
+# Homebrew
 brew install eza
+
+# MacPorts
+sudo port install eza
 ```
 
 #### `ripgrep` Setup
@@ -212,7 +291,11 @@ brew install eza
 [ripgrep](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches the current directory for a regex pattern.
 
 ```sh
+# Homebrew
 brew install ripgrep
+
+# MacPorts
+sudo port install ripgrep
 ```
 
 #### `bat` Setup
@@ -220,7 +303,11 @@ brew install ripgrep
 [bat](https://github.com/sharkdp/bat) is a *cat(1)* clone with syntax highlighting and Git integration.
 
 ```sh
+# Homebrew
 brew install bat
+
+# MacPorts
+sudo port install bat bat-extras
 ```
 
 #### `fzf` Setup
@@ -228,7 +315,11 @@ brew install bat
 [fzf](https://junegunn.github.io/fzf/) is a general-purpose command-line fuzzy finder.
 
 ```sh
+# Homebrew
 brew install fzf
+
+# MacPorts
+sudo port install fzf
 ```
 
 #### `fastfetch` Setup
@@ -236,7 +327,11 @@ brew install fzf
 [fastfetch](https://github.com/fastfetch-cli/fastfetch) is a maintained, feature-rich and performance oriented, neofetch like system information tool.
 
 ```sh
+# Homebrew
 brew install fastfetch
+
+# MacPorts
+sudo port install fastfetch
 ```
 
 ------
@@ -275,7 +370,7 @@ sudo apt install keychain
 Install the latest version of Git from the package repository:
 
 ```sh
-sudo apt install git gpg
+sudo apt install git git-lfs gpg
 ```
 
 #### 1Password Setup
@@ -427,7 +522,7 @@ sudo apt install libonig5
 ```
 
 > [!TIP]
-> To [configure Ghostty](https://starship.rs/config/#prompt), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl).
+> To [configure Ghostty](https://ghostty.org/docs/config), add your changes to [`dot_config/ghostty/config.tmpl`](dot_config/ghostty/config.tmpl).
 
 #### `uv` Setup
 

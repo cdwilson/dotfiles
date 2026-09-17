@@ -52,16 +52,18 @@ case $(os_type) in
         )
 
         # https://indiespark.top/software/detecting-apple-silicon-shell-script/
+        # The sysctl.proc_translated OID only exists on Apple Silicon. On Intel
+        # Macs sysctl fails (stderr is discarded), so a shell there is never
+        # translated and is always native.
         shell_is_translated ()
         (
-            translated=$(sysctl -n sysctl.proc_translated)
+            translated=$(sysctl -n sysctl.proc_translated 2>/dev/null)
             [ "${translated}" = "1" ]
         )
 
         shell_is_native ()
         (
-            translated=$(sysctl -n sysctl.proc_translated)
-            [ "${translated}" = "0" ]
+            ! shell_is_translated
         )
         ;;
     *)

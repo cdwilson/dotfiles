@@ -16,7 +16,13 @@ clipboard-paste-protection = true
 window-width = 80
 window-height = 24
 {{- if eq .chezmoi.os "darwin" }}
-  {{- if eq .chezmoi.arch "arm64" }}
+  {{- /* Ghostty starts the shell with launchd's minimal PATH, so a full path is
+         required. Prefer the MacPorts bash when MacPorts is installed (Intel
+         Macs, since Homebrew 7.0 dropped Intel support); otherwise fall back to
+         the Homebrew bash for this architecture. */}}
+  {{- if stat "/opt/local/bin/bash" }}
+command = /opt/local/bin/bash --login
+  {{- else if eq .chezmoi.arch "arm64" }}
 command = /opt/homebrew/bin/bash --login
   {{- else }}
 command = /usr/local/bin/bash --login

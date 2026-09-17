@@ -35,6 +35,34 @@ if [ -r "${HOME}/.sh_functions" ]; then
 fi
 
 # ------------------------------------------------------------------------------
+# MacPorts
+# ------------------------------------------------------------------------------
+
+# Homebrew 7.0 dropped support for Intel Macs, so MacPorts is used on those
+# machines instead. MacPorts has no equivalent of `brew shellenv`; it only needs
+# its bin directories on the PATH (on macOS, man(1) derives MANPATH from PATH).
+#
+# This block is intentionally placed before the "User paths" section below so
+# that ~/.local/bin and ~/bin take precedence over MacPorts binaries.
+
+case $(os_type) in
+    darwin*)
+        if executable_exists "/opt/local/bin/port"; then
+            export MACPORTS_PREFIX="/opt/local"
+            case ":${PATH}:" in
+                *:"${MACPORTS_PREFIX}/bin":*)
+                    ;;
+                *)
+                    export PATH="${MACPORTS_PREFIX}/bin:${MACPORTS_PREFIX}/sbin:${PATH}"
+                    ;;
+            esac
+        fi
+        ;;
+    *)
+        ;;
+esac
+
+# ------------------------------------------------------------------------------
 # User paths
 # ------------------------------------------------------------------------------
 
@@ -63,6 +91,9 @@ esac
 # ------------------------------------------------------------------------------
 # Homebrew
 # ------------------------------------------------------------------------------
+
+# Note: Homebrew 7.0 dropped support for Intel Macs; see the MacPorts section
+# above. This block is a no-op when Homebrew is not installed.
 
 case $(os_type) in
     linux*)
@@ -98,12 +129,12 @@ fi
 
 # On macOS, the default login shell is zsh (i.e. $SHELL = /bin/zsh).  If the
 # terminal is configured to run a different shell (e.g. bash installed by
-# homebrew), the value of the environment variable $SHELL won't match the shell
-# started by the terminal. Some tools (like bash completion, tmux, screen, etc)
-# rely on the login shell ($SHELL) so it needs to match the shell started by the
-# terminal.  If the login shell is not changed in the macOS system preferences
-# to match the shell started by the terminal, make sure to uncomment the code
-# below to ensure $SHELL is set correctly.
+# MacPorts or Homebrew), the value of the environment variable $SHELL won't
+# match the shell started by the terminal. Some tools (like bash completion,
+# tmux, screen, etc) rely on the login shell ($SHELL) so it needs to match the
+# shell started by the terminal.  If the login shell is not changed in the macOS
+# system preferences to match the shell started by the terminal, make sure to
+# uncomment the code below to ensure $SHELL is set correctly.
 #
 # Also, remember to add your login shell to the file /etc/shells, otherwise it
 # will be impossible to use AppleScript to tell Terminal to execute scripts
@@ -113,8 +144,11 @@ fi
 
 # case $(os_type) in
 #     darwin*)
-#         # Homebrew Bash
-#         if executable_exists brew; then
+#         if [ -n "${MACPORTS_PREFIX}" ]; then
+#             # MacPorts Bash
+#             export SHELL="${MACPORTS_PREFIX}/bin/bash"
+#         elif [ -n "${HOMEBREW_PREFIX}" ]; then
+#             # Homebrew Bash
 #             export SHELL="${HOMEBREW_PREFIX}/bin/bash"
 #         fi
 #         ;;
@@ -136,6 +170,10 @@ fi
 # ------------------------------------------------------------------------------
 
 # Homebrew pkg-config
+#
+# Nothing is needed for MacPorts: its pkgconfig port is built with
+# --with-pc-path=/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig, so
+# /opt/local is already searched by default.
 if executable_exists brew; then
     PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig"
     export PKG_CONFIG_PATH
@@ -145,14 +183,17 @@ fi
 # libffi
 # ------------------------------------------------------------------------------
 
-# libffi is keg-only, which means it was not symlinked into /usr/local,
-# because some formulae require a newer version of libffi.
+# In Homebrew, libffi is keg-only, which means it was not symlinked into
+# /usr/local, because some formulae require a newer version of libffi.
 #
 # For compilers to find libffi you may need to set:
 #   export LDFLAGS="-L/usr/local/opt/libffi/lib"
 #
 # For pkg-config to find libffi you may need to set:
 #   export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+#
+# Nothing is needed for MacPorts: the libffi port installs libffi.pc into
+# /opt/local/lib/pkgconfig, which pkg-config already searches.
 if executable_exists brew; then
     PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:$(brew --prefix libffi)/lib/pkgconfig"
     export PKG_CONFIG_PATH

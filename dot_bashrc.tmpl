@@ -178,19 +178,31 @@ ghostty() { LIBGL_ALWAYS_SOFTWARE=true command ghostty "$@"; }
 # ------------------------------------------------------------------------------
 
 {{if eq .chezmoi.os "darwin" -}}
-if [[ -n "${HOMEBREW_PREFIX}" ]] && [[ -d "${HOMEBREW_PREFIX}" ]]; then
+# bash-completion 2.x is provided by the MacPorts `bash-completion` port or the
+# Homebrew `bash-completion@2` formula. Both install the same loader script at
+# <prefix>/etc/profile.d/bash_completion.sh. MACPORTS_PREFIX and HOMEBREW_PREFIX
+# are exported by ~/.profile.
+if [[ -n "${MACPORTS_PREFIX}" ]] && [[ -d "${MACPORTS_PREFIX}" ]]; then
+    bash_completion_prefix="${MACPORTS_PREFIX}"
+elif [[ -n "${HOMEBREW_PREFIX}" ]] && [[ -d "${HOMEBREW_PREFIX}" ]]; then
+    bash_completion_prefix="${HOMEBREW_PREFIX}"
+else
+    bash_completion_prefix=""
+fi
+
+if [[ -n "${bash_completion_prefix}" ]]; then
     # bash version check code copied from `starship init bash`
     major="${BASH_VERSINFO[0]}"
     minor="${BASH_VERSINFO[1]}"
     if ((major > 4)) || { ((major == 4)) && ((minor >= 2)); }; then
         # Make sure you add this after any PATH manipulation as otherwise the
         # bash-completion will not work correctly.
-        if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+        if [[ -r "${bash_completion_prefix}/etc/profile.d/bash_completion.sh" ]]
         then
             # shellcheck source=/dev/null
-            . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+            . "${bash_completion_prefix}/etc/profile.d/bash_completion.sh"
         else
-            for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+            for COMPLETION in "${bash_completion_prefix}/etc/bash_completion.d/"*
             do
             # shellcheck source=/dev/null
             [[ -r "${COMPLETION}" ]] && . "${COMPLETION}"
@@ -200,7 +212,7 @@ if [[ -n "${HOMEBREW_PREFIX}" ]] && [[ -d "${HOMEBREW_PREFIX}" ]]; then
         echo
         echo "WARNING: Bash completion is unavailable."
         echo
-        echo "Homebrew bash-completion@2 requires bash >= 4.2"
+        echo "bash-completion 2.x requires bash >= 4.2"
         echo
         echo "\$BASH_VERSION=${BASH_VERSION}"
         echo
@@ -292,7 +304,8 @@ if executable_exists direnv; then
     # Workaround to make direnv work with VS Code's integrated terminal, see:
     # https://github.com/direnv/direnv-vscode/issues/561#issuecomment-3053744254
     # To print $DIRENV_DIFF for debugging:
-    #   brew install coreutils qpdf jq
+    #   brew install coreutils qpdf jq       # Homebrew
+    #   sudo port install coreutils qpdf jq  # MacPorts (basenc is installed as gbasenc)
     #   echo $DIRENV_DIFF | basenc --base64url --decode | zlib-flate -uncompress | jq  .
     if [[ "$TERM_PROGRAM" == "vscode" ]] && [[ -v DIRENV_DIFF ]]; then
         cd .. && eval "$PROMPT_COMMAND" && cd ~- && eval "$PROMPT_COMMAND"
