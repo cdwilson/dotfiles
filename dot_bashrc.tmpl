@@ -346,3 +346,15 @@ fi
 if [[ -r "${HOME}/.nrfutil/share/nrfutil-completion/scripts/bash/setup.bash" ]]; then
     . "${HOME}/.nrfutil/share/nrfutil-completion/scripts/bash/setup.bash"
 fi
+
+# ------------------------------------------------------------------------------
+# Otty Shell Integration
+# ------------------------------------------------------------------------------
+
+# >>> otty shell integration >>>
+# Inert unless launched by Otty (it sets $OTTY_SHELL_INTEGRATION).
+# Toggle in Otty: Settings > Shell > Shell Integration.
+if [[ -n "$OTTY_SHELL_INTEGRATION" ]] && [[ -r "$OTTY_SHELL_INTEGRATION/otty-integration.bash" ]]; then
+    . "$OTTY_SHELL_INTEGRATION/otty-integration.bash"
+fi
+# >>> otty shell integration >>>
