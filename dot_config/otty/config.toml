@@ -39,3 +39,5 @@ cursor-style = "bar"
 privilege-sound-shell = false
 
 on-launch = "new_window"
+
+shell-integration-disabled-shells = ["bash"]
