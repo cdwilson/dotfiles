@@ -310,7 +310,7 @@ if executable_exists direnv; then
     #   brew install coreutils qpdf jq       # Homebrew
     #   sudo port install coreutils qpdf jq  # MacPorts (basenc is installed as gbasenc)
     #   echo $DIRENV_DIFF | basenc --base64url --decode | zlib-flate -uncompress | jq  .
-    if [[ "$TERM_PROGRAM" == "vscode" ]] && [[ -v DIRENV_DIFF ]]; then
+    if [[ "$TERM_PROGRAM" == "vscode" ]] && [[ -n "${DIRENV_DIFF+x}" ]]; then
         cd .. && eval "$PROMPT_COMMAND" && cd ~- && eval "$PROMPT_COMMAND"
     fi
 fi
