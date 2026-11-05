@@ -312,3 +312,7 @@ export GLASGOW_TOOLCHAIN="system,builtin"
 if [ -d "${HOME}/.local/stm32cube/bin" ] ; then
     export PATH="${HOME}/.local/stm32cube/bin:$PATH"
 fi
+
+{{ if eq .chezmoi.os "darwin" -}}
+export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin
+{{- end }}
