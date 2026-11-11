@@ -14,6 +14,12 @@ SPDX-FileCopyrightText = "2022 Chris Wilson <christopher.david.wilson@gmail.com>
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
+path = ["dot_config/herdr-app/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Chris Wilson <christopher.david.wilson@gmail.com>"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
 path = ["README.md", "images/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 Chris Wilson <christopher.david.wilson@gmail.com>"

@@ -1,0 +1,11 @@
+{
+  "zoom": 1,
+  "sounds": {
+    "enabled": true
+  },
+  "font_ligatures": false,
+  "minimum_contrast": 1,
+  "theme": "cdwilson-tomorrow-night",
+  "font": "Monaspace Neon",
+  "font_size": 14
+}
